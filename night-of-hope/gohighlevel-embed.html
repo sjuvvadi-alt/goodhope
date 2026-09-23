@@ -1,12 +1,13 @@
 <!-- NIGHT OF HOPE: paste this whole block into a GoHighLevel Custom Code / Custom HTML element.
-     Everything is scoped to .noh so it won't clash with the page builder. -->
+     Everything is scoped to .noh so it won't clash with the page builder.
+     To add the video: search for VIDEO_URL near the bottom and paste the link between the quotes. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Questrial&display=swap" rel="stylesheet">
 <style>
 .noh{
   --burgundy:#690700; --burgundy-deep:#480500; --burgundy-soft:#8a1a10;
-  --amber:#FFBF69; --amber-soft:#ffd79f; --cream:#FFF8F0; --blush:#F7E9E4;
+  --amber:#FFBF69; --amber-soft:#ffd79f; --gold:#B07A26; --cream:#FBF6EE; --sand:#F3E8D8; --blush:#F7E9E4;
   --ink:#2B0A08; --body:#5a4a47; --line:rgba(105,7,0,.14);
   font-family:"Questrial",-apple-system,"Segoe UI",Roboto,sans-serif;
   color:var(--body); background:var(--cream); line-height:1.55; font-size:18px;
@@ -37,41 +38,58 @@
 @media (prefers-reduced-motion:reduce){.noh .reveal{opacity:1;transform:none;transition:none}}
 
 /* ---------- 1. HERO: everything needed, no scrolling ---------- */
-.noh .hero{padding:64px 0 56px;text-align:center;
-  background:radial-gradient(ellipse 70% 55% at 50% 0%, var(--blush), transparent 70%), var(--cream)}
+.noh .hero{padding:64px 0 64px;
+  background:radial-gradient(ellipse 60% 60% at 80% 0%, var(--sand), transparent 70%), var(--cream)}
+.noh .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center}
 .noh .hero .eyebrow{color:var(--burgundy)}
-.noh .hero h1{font-size:clamp(42px,7vw,84px);margin:16px auto 18px}
+.noh .hero h1{font-size:clamp(42px,5.6vw,72px);margin:16px 0 18px}
 .noh .hero h1 em{display:block;color:var(--burgundy);font-style:italic}
-.noh .hero-sub{max-width:40ch;margin:0 auto 22px;font-size:clamp(17px,1.9vw,20px)}
+.noh .hero-sub{max-width:40ch;margin:0 0 22px;font-size:clamp(17px,1.9vw,20px)}
 .noh .hero-sub strong{color:var(--ink)}
-.noh .when{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 auto 30px}
+.noh .when{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
 .noh .when span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#fff;
   box-shadow:inset 0 0 0 1px var(--line);font-size:15px;color:var(--ink)}
 .noh .when svg{width:16px;height:16px;color:var(--burgundy)}
-.noh .hero .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.noh .deadline{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:28px;
-  padding:12px 20px;border-radius:16px;background:var(--burgundy-deep);color:#fff}
+.noh .hero .btns{display:flex;flex-wrap:wrap;gap:12px}
+.noh .deadline{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin-top:24px;
+  padding:12px 20px;border-radius:16px;background:#fff;color:var(--burgundy);box-shadow:inset 0 0 0 1px var(--line)}
 .noh .deadline[hidden]{display:none}
-.noh .deadline small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.noh .deadline small{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .noh .clock{display:flex;gap:10px;font-variant-numeric:tabular-nums}
 .noh .clock div{text-align:center;min-width:44px}
 .noh .clock b{display:block;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:28px;line-height:1}
-.noh .clock i{font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.noh .clock i{font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--body)}
+
+/* Video slot (placeholder until VIDEO_URL is set in the script) */
+.noh .film{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:var(--sand);
+  box-shadow:0 36px 70px -40px rgba(72,5,0,.55), inset 0 0 0 1px var(--line)}
+.noh .film video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.noh .film-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  padding:24px;text-align:center;background:radial-gradient(ellipse 70% 70% at 50% 40%, #fff8ee, var(--sand))}
+.noh .film-ph .play{width:68px;height:68px;border-radius:50%;background:var(--burgundy);display:grid;place-items:center;
+  box-shadow:0 14px 30px -12px rgba(105,7,0,.7)}
+.noh .film-ph .play svg{width:26px;height:26px;margin-left:4px;color:#fff}
+.noh .film-ph q{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(20px,2.2vw,26px);line-height:1.25;color:var(--ink);max-width:24ch}
+.noh .film-ph small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.noh .sound{position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:8px;
+  padding:9px 15px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-size:14px;font-weight:700;
+  background:rgba(255,255,255,.92);color:var(--burgundy-deep);box-shadow:0 6px 20px -8px rgba(0,0,0,.5)}
+.noh .sound svg{width:16px;height:16px}
 
 /* ---------- 2. WHY: one face, three numbers ---------- */
-.noh .why{background:var(--burgundy);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+.noh .why{background:var(--sand);color:var(--body);padding:80px 0;position:relative;overflow:hidden}
 .noh .why::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 50% 70% at 0% 0%, rgba(255,191,105,.16), transparent 70%)}
+  background:radial-gradient(ellipse 50% 70% at 0% 0%, rgba(255,255,255,.55), transparent 70%)}
 .noh .why .wrap{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
-.noh .why blockquote{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(28px,3.8vw,44px);line-height:1.2;color:#fff}
-.noh .why blockquote::before{content:"\201C";display:block;font-size:96px;line-height:.55;color:var(--amber);margin-bottom:6px}
-.noh .why blockquote em{color:var(--amber)}
-.noh .why cite{display:block;margin-top:18px;font-style:normal;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.noh .why blockquote{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(28px,3.8vw,44px);line-height:1.2;color:var(--ink)}
+.noh .why blockquote::before{content:"\201C";display:block;font-size:96px;line-height:.55;color:var(--gold);margin-bottom:6px}
+.noh .why blockquote em{color:var(--burgundy)}
+.noh .why cite{display:block;margin-top:18px;font-style:normal;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--body)}
 .noh .nums{display:grid;gap:14px}
-.noh .num{display:flex;align-items:baseline;gap:16px;padding:18px 0;border-top:1px solid rgba(255,255,255,.18)}
-.noh .num:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
-.noh .num b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(36px,4.4vw,50px);line-height:1;color:var(--amber);min-width:3.6ch}
-.noh .num span{color:rgba(255,255,255,.85);font-size:17px}
+.noh .num{display:flex;align-items:baseline;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.noh .num:last-child{border-bottom:1px solid var(--line)}
+.noh .num b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(36px,4.4vw,50px);line-height:1;color:var(--burgundy);min-width:3.6ch}
+.noh .num span{color:var(--ink);font-size:17px}
 
 /* ---------- 3. THE OFFER: two clear choices ---------- */
 .noh .offer{padding:80px 0}
@@ -102,7 +120,7 @@
 .noh .facts svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--amber)}
 
 .noh .card-give{background:#fff;box-shadow:inset 0 0 0 2px var(--line), 0 30px 60px -40px rgba(72,5,0,.5)}
-.noh .card-give .flag{background:var(--blush);color:var(--burgundy)}
+.noh .card-give .flag{background:var(--sand);color:var(--burgundy)}
 .noh .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .noh .chip{background:#fff;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;
   padding:11px 20px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s}
@@ -118,7 +136,7 @@
 .noh .trust{font-size:15px;margin-bottom:26px;padding-left:14px;border-left:3px solid var(--amber)}
 
 /* ---------- 4. CLOSE ---------- */
-.noh .close{background:var(--burgundy);color:#fff;padding:72px 0;text-align:center;position:relative;overflow:hidden}
+.noh .close{background:var(--burgundy-deep);color:#fff;padding:72px 0;text-align:center;position:relative;overflow:hidden}
 .noh .close::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(ellipse 50% 80% at 50% 100%, rgba(255,191,105,.2), transparent 70%)}
 .noh .close .wrap{position:relative}
@@ -136,7 +154,12 @@
 .noh .sticky .btn{flex:1;padding:14px 10px;font-size:15px}
 
 @media (max-width:860px){
-  .noh .why .wrap,.noh .cards{grid-template-columns:1fr}
+  .noh .why .wrap,.noh .cards,.noh .hero .wrap{grid-template-columns:1fr}
+  .noh .hero .wrap{gap:36px;text-align:center}
+  .noh .hero-sub{margin:0 auto 22px}
+  .noh .when,.noh .hero .btns{justify-content:center}
+  .noh .hero .text{display:flex;flex-direction:column;align-items:center}
+  .noh .film{max-width:640px;width:100%;margin:0 auto}
   .noh .why .wrap{gap:32px}
   .noh .why,.noh .offer{padding:60px 0}
   .noh .sticky{display:flex}
@@ -157,6 +180,7 @@
   <!-- ========== 1. HERO ========== -->
   <section class="hero">
     <div class="wrap">
+      <div class="text">
       <div class="eyebrow">Good Hope Inc. &nbsp;·&nbsp; Night of Hope</div>
       <h1>One mother. <span class="br">Four children.</span> <em>A full table.</em></h1>
       <p class="hero-sub">Join us for our <strong>first-ever gala</strong>, or give from right here. Every <strong>$50 feeds one North Shore family.</strong></p>
@@ -175,6 +199,15 @@
           <div><b id="noh-h">00</b><i>Hrs</i></div>
           <div><b id="noh-m">00</b><i>Min</i></div>
           <div><b id="noh-s">00</b><i>Sec</i></div>
+        </div>
+      </div>
+      </div>
+      <!-- Video slot: shows this placeholder until VIDEO_URL is filled in the script at the bottom -->
+      <div class="film" id="noh-film">
+        <div class="film-ph">
+          <div class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div>
+          <q>It means a lot because it helps me feed my children.</q>
+          <small>Her story · video coming soon</small>
         </div>
       </div>
     </div>
@@ -264,6 +297,13 @@
 
 <script>
 (function(){
+  /* =========================================================
+     EDIT THESE: paste the video and poster image links here.
+     Leave VIDEO_URL empty and the placeholder stays.
+     ========================================================= */
+  var VIDEO_URL  = "";   // e.g. "https://.../testimonial.mp4"
+  var POSTER_URL = "";   // e.g. "https://.../poster.jpg"
+
   var PER_FAMILY = 50; // $50 = one family's groceries
   var EARLY_END = new Date("2026-10-01T00:00:00-04:00");
   var GENERAL_END = new Date("2026-11-01T00:00:00-04:00");
@@ -298,6 +338,31 @@
     root.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
   } else {
     root.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* Hero video: plays muted when on screen (captions are burned in), tap for sound */
+  if(VIDEO_URL){
+    var film = $("noh-film");
+    film.innerHTML = '<video muted loop playsinline preload="metadata"></video>' +
+      '<button class="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg><span>Play with sound</span></button>';
+    var vid = film.querySelector("video"), snd = film.querySelector(".sound"), sndLabel = snd.querySelector("span");
+    vid.src = VIDEO_URL; if(POSTER_URL) vid.poster = POSTER_URL;
+    var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(calm) sndLabel.textContent = "Play video";
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ if(!calm && !vid.dataset.stopped) vid.play().catch(function(){}); } else vid.pause(); });
+      }, { threshold: 0.4 }).observe(vid);
+    }
+    snd.addEventListener("click", function(){
+      if(vid.muted || vid.paused){
+        vid.muted = false; vid.currentTime = 0; vid.play().catch(function(){}); delete vid.dataset.stopped;
+        sndLabel.textContent = "Mute"; snd.setAttribute("aria-pressed", "true");
+      } else {
+        vid.muted = true; sndLabel.textContent = "Play with sound"; snd.setAttribute("aria-pressed", "false");
+        if(calm){ vid.pause(); vid.dataset.stopped = "1"; }
+      }
+    });
   }
 
   /* Gift calculator */
