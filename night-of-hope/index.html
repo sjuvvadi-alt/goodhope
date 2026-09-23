@@ -7,32 +7,36 @@
 <meta name="description" content="Good Hope Inc.'s first-ever gala, November 7, 2026 at Bear Hill Golf Club. Every $50 feeds one North Shore family.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Questrial&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mrs+Saint+Delafield&family=Noto+Serif+Display:ital,wdth,wght@0,62.5..100,300..500;1,62.5..100,300..500&display=swap" rel="stylesheet">
 <style>
 .noh{
-  --burgundy:#690700; --burgundy-deep:#480500; --burgundy-soft:#8a1a10;
-  --amber:#FFBF69; --amber-soft:#ffd79f; --gold:#B07A26; --cream:#FBF6EE; --sand:#F3E8D8;
-  --ink:#2B0A08; --body:#5a4a47; --line:rgba(105,7,0,.14);
-  font-family:"Questrial",-apple-system,"Segoe UI",Roboto,sans-serif;
-  color:var(--body); background:var(--cream); line-height:1.55; font-size:18px;
+  /* Brand colors and fonts from the Night of Hope Save the Date */
+  --burgundy:#640510; --burgundy-deep:#45030B; --burgundy-soft:#7E1020;
+  --amber:#D8C28E; --amber-soft:#EBDDB9; --gold-bright:#B69E6A; --gold:#7A6236;
+  --cream:#FFF9EF; --sand:#F5EADB; --ink:#190603; --body:#4f4340; --line:rgba(100,5,16,.14);
+  --display:"Noto Serif Display",Georgia,serif; --script:"Mrs Saint Delafield",cursive;
+  font-family:"Montserrat",-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--body); background:var(--cream); line-height:1.6; font-size:17px;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 .noh *,.noh *::before,.noh *::after{box-sizing:border-box;margin:0;padding:0}
-.noh h1,.noh h2,.noh h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.06;color:var(--ink)}
+.noh h1,.noh h2,.noh h3{font-family:var(--display);font-stretch:62.5%;font-weight:300;line-height:.98;letter-spacing:.005em;text-transform:uppercase;color:var(--ink)}
+.noh h1 em,.noh h2 em{font-family:var(--script);font-stretch:normal;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0;font-size:1.2em;line-height:.9}
+.noh .script{font-family:var(--script);font-weight:400;text-transform:none;letter-spacing:0}
 .noh a{color:inherit}
 .noh svg{flex:none}
 .noh .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.noh .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.noh .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
 
 /* Buttons: burgundy = primary action, outline = secondary */
 .noh .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:18px 32px;border-radius:999px;font-size:17px;font-weight:700;letter-spacing:.02em;
+  padding:18px 32px;border-radius:999px;font-size:16px;font-weight:600;letter-spacing:.04em;
   text-decoration:none;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;cursor:pointer;border:0}
 .noh .btn:hover{transform:translateY(-2px)}
 .noh .btn-primary{background:var(--burgundy);color:#fff;box-shadow:0 12px 30px -12px rgba(105,7,0,.7)}
 .noh .btn-primary:hover{background:var(--burgundy-soft)}
-.noh .btn-amber{background:var(--amber);color:var(--burgundy-deep);box-shadow:0 12px 30px -12px rgba(255,191,105,.8)}
-.noh .btn-amber:hover{background:#ffcb85}
+.noh .btn-amber{background:var(--cream);color:var(--burgundy);box-shadow:0 12px 30px -12px rgba(0,0,0,.55)}
+.noh .btn-amber:hover{background:#fff}
 .noh .btn-line{background:transparent;color:var(--burgundy);box-shadow:inset 0 0 0 2px var(--burgundy)}
 .noh .btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
 .noh .btn-ghost:hover{box-shadow:inset 0 0 0 2px #fff}
@@ -45,9 +49,11 @@
 /* ---------- 1. HERO: the whole decision on one screen ---------- */
 .noh .hero{padding:60px 0 64px;background:radial-gradient(ellipse 60% 60% at 80% 0%, var(--sand), transparent 70%), var(--cream)}
 .noh .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center}
-.noh .hero .eyebrow{color:var(--burgundy)}
-.noh .hero h1{font-size:clamp(42px,5.6vw,72px);margin:16px 0 18px}
-.noh .hero h1 em{display:block;color:var(--burgundy);font-style:italic}
+.noh .hero .eyebrow{color:var(--burgundy);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.noh .hero .eyebrow .script{font-size:36px;line-height:1;color:var(--ink)}
+.noh .hero h1{font-size:clamp(48px,5.8vw,78px);margin:14px 0 28px}
+.noh .hero h1 .br{display:block}
+.noh .hero h1 em{display:block;color:var(--burgundy);margin-top:.08em}
 .noh .hero-sub{max-width:38ch;margin:0 0 22px;font-size:clamp(17px,1.9vw,20px)}
 .noh .hero-sub strong{color:var(--ink)}
 .noh .when{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
@@ -56,19 +62,19 @@
 .noh .when svg{width:16px;height:16px;color:var(--burgundy)}
 .noh .hero .btns{display:flex;flex-wrap:wrap;gap:12px}
 .noh .deadline{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin-top:22px;
-  padding:12px 20px;border-radius:16px;background:#fff;color:var(--burgundy);box-shadow:inset 0 0 0 1px var(--line)}
+  padding:12px 20px;border-radius:6px;background:#fff;color:var(--burgundy);box-shadow:inset 0 0 0 1px var(--line)}
 .noh .deadline[hidden]{display:none}
 .noh .deadline small{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .noh .clock{display:flex;gap:10px;font-variant-numeric:tabular-nums}
 .noh .clock div{text-align:center;min-width:44px}
-.noh .clock b{display:block;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:28px;line-height:1}
+.noh .clock b{display:block;font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:34px;line-height:1}
 .noh .clock i{font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--body)}
 .noh .assure{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-size:14px;color:var(--body)}
 .noh .assure span{display:inline-flex;align-items:center;gap:6px}
-.noh .assure svg{width:15px;height:15px;color:var(--gold)}
+.noh .assure svg{width:15px;height:15px;color:var(--gold-bright)}
 
 /* Video slot (placeholder until VIDEO_URL is set in the script) */
-.noh .film{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:var(--sand);
+.noh .film{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:16/9;background:var(--sand);
   box-shadow:0 36px 70px -40px rgba(72,5,0,.55), inset 0 0 0 1px var(--line)}
 .noh .film video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
 .noh .film-wait{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
@@ -76,7 +82,7 @@
 .noh .film-wait .play{width:68px;height:68px;border-radius:50%;background:var(--burgundy);display:grid;place-items:center;
   box-shadow:0 14px 30px -12px rgba(105,7,0,.7)}
 .noh .film-wait .play svg{width:26px;height:26px;margin-left:4px;color:#fff}
-.noh .film-wait q{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(20px,2.2vw,26px);line-height:1.25;color:var(--ink);max-width:24ch}
+.noh .film-wait q{font-family:var(--display);font-stretch:87.5%;font-size:clamp(20px,2.2vw,26px);line-height:1.25;color:var(--ink);max-width:24ch}
 .noh .film-wait small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
 .noh .sound{position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:8px;
   padding:9px 15px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-size:14px;font-weight:700;
@@ -86,47 +92,47 @@
 /* ---------- 2. WHY: one person, then the scale ---------- */
 .noh .why{background:var(--sand);padding:76px 0}
 .noh .why .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
-.noh .why blockquote{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(28px,3.8vw,44px);line-height:1.2;color:var(--ink)}
-.noh .why blockquote::before{content:"\201C";display:block;font-size:96px;line-height:.55;color:var(--gold);margin-bottom:6px}
-.noh .why blockquote em{color:var(--burgundy)}
+.noh .why blockquote{font-family:var(--display);font-stretch:87.5%;font-weight:400;font-size:clamp(28px,3.8vw,44px);line-height:1.2;color:var(--ink)}
+.noh .why blockquote::before{content:"\201C";display:block;font-size:96px;line-height:.55;color:var(--gold-bright);margin-bottom:6px}
+.noh .why blockquote em{color:var(--burgundy);font-style:italic}
 .noh .why cite{display:block;margin-top:18px;font-style:normal;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
 .noh .num{display:flex;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
 .noh .num:last-child{border-bottom:1px solid var(--line)}
-.noh .num b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(36px,4.4vw,50px);line-height:1;color:var(--burgundy);min-width:4.4ch}
+.noh .num b{font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:clamp(44px,5.2vw,60px);line-height:1;color:var(--burgundy);min-width:4.4ch}
 .noh .num span{color:var(--ink);font-size:17px}
 
 /* ---------- 3. THE OFFER: two clear choices ---------- */
 .noh .offer{padding:76px 0}
 .noh .offer-head{text-align:center;margin-bottom:28px}
 .noh .offer-head .eyebrow{color:var(--burgundy)}
-.noh .offer-head h2{font-size:clamp(34px,5vw,56px);margin-top:12px}
+.noh .offer-head h2{font-size:clamp(42px,6vw,70px);margin-top:12px}
 
-.noh .goal{max-width:760px;margin:0 auto 32px;background:#fff;border-radius:20px;padding:20px 26px;box-shadow:inset 0 0 0 1px var(--line)}
+.noh .goal{max-width:760px;margin:0 auto 32px;background:#fff;border-radius:6px;padding:20px 26px;box-shadow:inset 0 0 0 1px var(--line)}
 .noh .goal[hidden]{display:none}
 .noh .goal-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin-bottom:12px}
-.noh .goal-top b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:28px;color:var(--burgundy)}
+.noh .goal-top b{font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:36px;text-transform:uppercase;color:var(--burgundy)}
 .noh .goal-top span{font-size:15px}
 .noh .bar{height:14px;border-radius:999px;background:var(--sand);overflow:hidden}
-.noh .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--amber),var(--burgundy));transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.noh .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold-bright),var(--burgundy));transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
 .noh .goal-note{margin-top:10px;font-size:15px;color:var(--ink)}
 
 .noh .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
-.noh .card{--pad:clamp(22px,3.5vw,40px);border-radius:26px;padding:36px var(--pad);display:flex;flex-direction:column}
-.noh .card h3{font-size:clamp(30px,3.4vw,40px);margin:10px 0 8px}
+.noh .card{--pad:clamp(22px,3.5vw,40px);border-radius:6px;padding:36px var(--pad);display:flex;flex-direction:column}
+.noh .card h3{font-size:clamp(38px,4.2vw,50px);margin:12px 0 8px}
 .noh .card .btn{margin-top:auto}
-.noh .flag{display:inline-block;align-self:flex-start;background:var(--amber);color:var(--burgundy-deep);font-size:12px;font-weight:700;
+.noh .flag{display:inline-block;align-self:flex-start;background:var(--gold-bright);color:var(--ink);font-size:11px;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
 .noh .fine{font-size:14px;margin-top:12px;text-align:center}
 
 .noh .card-gala{background:var(--burgundy-deep);color:rgba(255,255,255,.82)}
 .noh .card-gala h3{color:#fff}
 .noh .price{display:flex;align-items:baseline;gap:12px;margin:4px 0 4px}
-.noh .price b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:64px;line-height:1;color:#fff}
+.noh .price b{font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:80px;line-height:1;color:#fff}
 .noh .price s{font-size:22px;color:rgba(255,255,255,.5)}
 .noh .price span{font-size:15px;color:rgba(255,255,255,.7)}
 .noh .save{color:var(--amber);font-size:15px;margin-bottom:20px}
 .noh .includes{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
-.noh .includes li{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:14px;background:rgba(255,255,255,.06);font-size:15px;line-height:1.35}
+.noh .includes li{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:4px;background:rgba(255,255,255,.06);font-size:15px;line-height:1.35}
 .noh .includes b{display:block;color:#fff;font-weight:700}
 .noh .includes svg{width:22px;height:22px;color:var(--amber);margin-top:1px}
 .noh .where{font-size:15px;margin-bottom:18px}
@@ -145,14 +151,14 @@
   padding:11px 20px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s}
 .noh .chip:hover{border-color:var(--burgundy)}
 .noh .chip[aria-pressed="true"]{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
-.noh .calc-out{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(26px,3vw,34px);line-height:1.2;color:var(--ink);margin-bottom:14px}
+.noh .calc-out{font-family:var(--display);font-stretch:87.5%;font-size:clamp(26px,3vw,34px);line-height:1.2;color:var(--ink);margin-bottom:14px}
 .noh .calc-out b{font-weight:400;color:var(--burgundy)}
 .noh .plates{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;min-height:26px}
-.noh .plate{width:22px;height:22px;border-radius:50%;background:var(--amber);box-shadow:inset 0 0 0 5px var(--amber-soft);
+.noh .plate{width:22px;height:22px;border-radius:50%;background:var(--gold-bright);box-shadow:inset 0 0 0 5px var(--amber-soft);
   animation:noh-pop .35s ease backwards}
 @keyframes noh-pop{from{transform:scale(0)}to{transform:scale(1)}}
 .noh .plates .more{font-size:15px;align-self:center;margin-left:6px}
-.noh .trust{font-size:15px;margin-bottom:24px;padding-left:14px;border-left:3px solid var(--amber)}
+.noh .trust{font-size:15px;margin-bottom:24px;padding-left:14px;border-left:3px solid var(--gold-bright)}
 .noh .trust strong{color:var(--ink)}
 
 /* ---------- 4. CLOSE ---------- */
@@ -160,8 +166,8 @@
 .noh .close::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(ellipse 50% 80% at 50% 100%, rgba(255,191,105,.2), transparent 70%)}
 .noh .close .wrap{position:relative}
-.noh .close h2{color:#fff;font-size:clamp(34px,5.5vw,60px);max-width:18ch;margin:0 auto 14px}
-.noh .close h2 em{color:var(--amber)}
+.noh .close h2{color:#fff;font-size:clamp(44px,7vw,80px);max-width:20ch;margin:0 auto 34px}
+.noh .close h2 em{color:var(--amber);display:block}
 .noh .close p{color:rgba(255,255,255,.8);max-width:44ch;margin:0 auto 28px}
 .noh .close .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .noh .close .sponsor{margin:34px auto 0;font-size:15px;color:rgba(255,255,255,.7)}
@@ -186,13 +192,13 @@
   .noh .close{padding-bottom:120px}
 }
 @media (max-width:480px){
-  .noh{font-size:17px}
+  .noh{font-size:16px}
   .noh .hero{padding:40px 0 48px}
   .noh .hero .eyebrow{letter-spacing:.14em}
   .noh .hero h1 .br{display:block}
   .noh .hero .btns .btn,.noh .close .btns .btn,.noh .card .btn{width:100%}
   .noh .when span{font-size:14px;padding:7px 12px}
-  .noh .price b{font-size:54px}
+  .noh .price b{font-size:68px}
   .noh .includes{grid-template-columns:1fr}
   .noh .includes li{padding:10px 12px}
 }
@@ -206,7 +212,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="text">
-        <div class="eyebrow">Good Hope Inc. &nbsp;·&nbsp; Night of Hope</div>
+        <div class="eyebrow"><span class="script">Good Hope&rsquo;s</span> Night of Hope 2026</div>
         <h1>One mother. <span class="br">Four children.</span> <em>A full table.</em></h1>
         <p class="hero-sub">Join us at our <strong>first-ever gala</strong>, or give from right here. Every <strong>$50 feeds one North Shore family.</strong></p>
         <div class="when">
@@ -316,7 +322,7 @@
   <!-- ========== 4. CLOSE ========== -->
   <section class="close">
     <div class="wrap reveal">
-      <h2>Be in the room for <em>the first one.</em></h2>
+      <h2>Be in the room <em>for the first one.</em></h2>
       <p>One night, one room, and a community deciding that this holiday season, every family gets to eat.</p>
       <div class="btns">
         <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
