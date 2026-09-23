@@ -267,7 +267,7 @@
       </div>
       <!-- Goal meter: update RAISED in the script at the bottom as gifts come in -->
       <div class="goal reveal" id="noh-goal" hidden>
-        <div class="goal-top"><b id="noh-tables">0 of 600 tables filled</b><span id="noh-raised">$0 of $30,000 raised</span></div>
+        <div class="goal-top"><b id="noh-raised">$0 raised</b><span id="noh-target">of our $30,000 goal</span></div>
         <div class="bar"><i id="noh-bar"></i></div>
         <p class="goal-note" id="noh-goal-note"></p>
       </div>
@@ -416,15 +416,14 @@
     });
   }
 
-  /* Goal meter, counted in family tables */
+  /* Goal meter */
   if(GOAL > 0){
-    var tablesGoal = Math.floor(GOAL / PER_FAMILY), tablesDone = Math.floor(RAISED / PER_FAMILY);
     $("noh-goal").hidden = false;
-    $("noh-tables").textContent = tablesDone.toLocaleString("en-US") + " of " + tablesGoal.toLocaleString("en-US") + " tables filled";
-    $("noh-raised").textContent = fmt(RAISED) + " of " + fmt(GOAL) + " raised";
+    $("noh-raised").textContent = fmt(RAISED) + " raised";
+    $("noh-target").textContent = Math.floor(RAISED / GOAL * 100) + "% of our " + fmt(GOAL) + " goal";
     $("noh-goal-note").textContent = RAISED >= GOAL
-      ? "We did it. Thank you for filling every table."
-      : "Your seat or gift fills the next one. " + (tablesGoal - tablesDone).toLocaleString("en-US") + " families still need a table this holiday season.";
+      ? "We reached our goal. Thank you, North Shore."
+      : "Help us reach " + fmt(GOAL) + " by November 7. Every $50 feeds one family.";
     var fill = function(){ $("noh-bar").style.width = Math.max(Math.min(RAISED / GOAL * 100, 100), 2) + "%"; };
     if("IntersectionObserver" in window){
       var gio = new IntersectionObserver(function(en){ if(en[0].isIntersecting){ fill(); gio.disconnect(); } }, { threshold: 0.3 });
