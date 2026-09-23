@@ -1,7 +1,8 @@
 <!-- NIGHT OF HOPE: paste this whole block into a GoHighLevel Custom Code / Custom HTML element.
      Everything is scoped to .noh so it won't clash with the page builder.
      To add the video: search for VIDEO_URL near the bottom and paste the link (YouTube or .mp4) between the quotes.
-     To update the goal meter: search for RAISED and change the number. -->
+     To update the goal meter: search for RAISED and change the number.
+     Photos load from jsDelivr; to use GoHighLevel Media links instead, replace the two img src URLs (search for .jpg). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Questrial&display=swap" rel="stylesheet">
@@ -65,13 +66,11 @@
 .noh .film{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:var(--sand);
   box-shadow:0 36px 70px -40px rgba(72,5,0,.55), inset 0 0 0 1px var(--line)}
 .noh .film video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
-.noh .film-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-  padding:24px;text-align:center;background:radial-gradient(ellipse 70% 70% at 50% 40%, #fff8ee, var(--sand))}
-.noh .film-ph .play{width:68px;height:68px;border-radius:50%;background:var(--burgundy);display:grid;place-items:center;
-  box-shadow:0 14px 30px -12px rgba(105,7,0,.7)}
-.noh .film-ph .play svg{width:26px;height:26px;margin-left:4px;color:#fff}
-.noh .film-ph q{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(20px,2.2vw,26px);line-height:1.25;color:var(--ink);max-width:24ch}
-.noh .film-ph small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.noh .film-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.noh .film-cap{position:absolute;left:14px;bottom:14px;padding:7px 12px;border-radius:999px;font-size:13px;
+  background:rgba(255,255,255,.92);color:var(--burgundy-deep);box-shadow:0 6px 20px -8px rgba(0,0,0,.4)}
+.noh .card-photo{display:block;width:calc(100% + 2 * clamp(22px,3.5vw,42px));max-width:none;height:180px;object-fit:cover;object-position:50% 45%;
+  margin:-40px calc(-1 * clamp(22px,3.5vw,42px)) 24px;border-radius:26px 26px 0 0}
 .noh .sound{position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:8px;
   padding:9px 15px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-size:14px;font-weight:700;
   background:rgba(255,255,255,.92);color:var(--burgundy-deep);box-shadow:0 6px 20px -8px rgba(0,0,0,.5)}
@@ -241,13 +240,10 @@
         </div>
       </div>
       </div>
-      <!-- Video slot: shows this placeholder until VIDEO_URL is filled in the script at the bottom -->
+      <!-- Video slot: shows the photo until VIDEO_URL is filled in the script at the bottom -->
       <div class="film" id="noh-film">
-        <div class="film-ph">
-          <div class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></div>
-          <q>It means a lot because it helps me feed my children.</q>
-          <small>Her story · video coming soon</small>
-        </div>
+        <img class="film-photo" src="https://cdn.jsdelivr.net/gh/sjuvvadi-alt/goodhope@69cb16b36612bce97cf621c09dc316d5dd4dc95e/night-of-hope/images/volunteers.jpg" alt="Good Hope volunteers in orange shirts handing out fresh produce at the Lynnfield pantry" width="1400" height="933">
+        <span class="film-cap">Good Hope volunteers at the Lynnfield pantry</span>
       </div>
     </div>
   </section>
@@ -317,6 +313,7 @@
         </div>
 
         <div class="card card-give reveal" id="noh-give-card">
+          <img class="card-photo" src="https://cdn.jsdelivr.net/gh/sjuvvadi-alt/goodhope@69cb16b36612bce97cf621c09dc316d5dd4dc95e/night-of-hope/images/neighbors.jpg" alt="Neighbors carrying grocery bags at the Good Hope pantry" width="1200" height="800" loading="lazy">
           <span class="flag">Can't make it?</span>
           <h3>Fill a table from here</h3>
           <p>Tap an amount and see how many families you feed.</p>
@@ -371,7 +368,7 @@
      Leave VIDEO_URL empty and the placeholder stays.
      ========================================================= */
   var VIDEO_URL  = "";   // e.g. "https://.../testimonial.mp4"
-  var POSTER_URL = "";   // e.g. "https://.../poster.jpg"
+  var POSTER_URL = "";   // optional; defaults to the hero photo
 
   /* Fundraising goal: update RAISED from Givebutter as gifts come in. Set GOAL to 0 to hide the meter. */
   var GOAL   = 30000;
@@ -418,11 +415,11 @@
   if(yt){
     $("noh-film").innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + yt[1] + '?rel=0&modestbranding=1&playsinline=1" title="Good Hope: Night of Hope" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
   } else if(VIDEO_URL){
-    var film = $("noh-film");
+    var film = $("noh-film"), heroSrc = (film.querySelector(".film-photo") || {}).src || "";
     film.innerHTML = '<video muted loop playsinline preload="metadata"></video>' +
       '<button class="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg><span>Play with sound</span></button>';
     var vid = film.querySelector("video"), snd = film.querySelector(".sound"), sndLabel = snd.querySelector("span");
-    vid.src = VIDEO_URL; if(POSTER_URL) vid.poster = POSTER_URL;
+    vid.src = VIDEO_URL; vid.poster = POSTER_URL || heroSrc;
     var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if(calm) sndLabel.textContent = "Play video";
     if("IntersectionObserver" in window){
