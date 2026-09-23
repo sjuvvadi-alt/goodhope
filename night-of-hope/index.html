@@ -305,7 +305,7 @@
           <div class="calc-out" aria-live="polite">$100 feeds <b>2 families</b>.</div>
           <div class="plates" aria-hidden="true"></div>
           <p class="trust">Every dollar goes to the Lynnfield pantry and the neighbors who rely on it. <strong>Good Hope, Inc. is a 501(c)(3) nonprofit</strong>, so your gift is tax-deductible to the extent allowed by law.</p>
-          <a class="btn btn-primary" id="noh-give" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give $100 Now</a>
+          <a class="btn btn-primary" id="noh-give" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Give $100 Now</a>
         </div>
 
       </div>
@@ -319,16 +319,16 @@
       <p>One night, one room, and a community deciding that this holiday season, every family gets to eat.</p>
       <div class="btns">
         <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
-        <a class="btn btn-ghost" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give Now</a>
+        <a class="btn btn-ghost" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Give Now</a>
       </div>
       <div class="sponsor-head">Become a founding sponsor</div>
       <div class="sponsors">
-        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Bronze</small><b>$1,000</b><span>2 tickets · name &amp; logo on signage and website</span></a>
-        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Silver</small><b>$1,500</b><span>3 tickets · prominent signage · social media</span></a>
-        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Gold</small><b>$2,500</b><span>4 tickets · featured in the program and all event communications</span></a>
-        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Platinum</small><b>$5,000</b><span>8 tickets · recognition from the stage · volunteer day for your team</span></a>
+        <a href="mailto:office@goodhopeinc.org?subject=Night%20of%20Hope%20Bronze%20Sponsorship"><small>Bronze</small><b>$1,000</b><span>2 tickets · name &amp; logo on signage and website</span></a>
+        <a href="mailto:office@goodhopeinc.org?subject=Night%20of%20Hope%20Silver%20Sponsorship"><small>Silver</small><b>$1,500</b><span>3 tickets · prominent signage · social media</span></a>
+        <a href="mailto:office@goodhopeinc.org?subject=Night%20of%20Hope%20Gold%20Sponsorship"><small>Gold</small><b>$2,500</b><span>4 tickets · featured in the program and all event communications</span></a>
+        <a href="mailto:office@goodhopeinc.org?subject=Night%20of%20Hope%20Platinum%20Sponsorship"><small>Platinum</small><b>$5,000</b><span>8 tickets · recognition from the stage · volunteer day for your team</span></a>
       </div>
-      <p class="sponsor-line">Recognition is always optional. <a href="https://goodhopeinc.org/wp-content/uploads/2026/09/Night-of-Hope-Sponsorship-2026.pdf" target="_blank" rel="noopener">See all sponsor benefits</a> or <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener">contact us</a>.</p>
+      <p class="sponsor-line">Recognition is always optional. <a href="https://goodhopeinc.org/wp-content/uploads/2026/09/Night-of-Hope-Sponsorship-2026.pdf" target="_blank" rel="noopener">See all sponsor benefits</a> or <a href="mailto:office@goodhopeinc.org?subject=Night%20of%20Hope%20Sponsorship">email office@goodhopeinc.org</a>.</p>
     </div>
   </section>
 
@@ -365,7 +365,7 @@
   var q = new URLSearchParams(location.search), keep = new URLSearchParams();
   q.forEach(function(v, k){ if(/^utm_|^fbclid$|^gclid$/.test(k)) keep.set(k, v); });
   if(keep.toString()){
-    root.querySelectorAll('a[href^="https://givebutter.com"],a[href^="https://goodhopeinc.org/donate"]').forEach(function(a){
+    root.querySelectorAll('a[href^="https://givebutter.com"]').forEach(function(a){
       var u = new URL(a.href); keep.forEach(function(v, k){ u.searchParams.set(k, v); }); a.href = u.toString();
     });
   }
