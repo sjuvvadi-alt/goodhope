@@ -138,6 +138,28 @@
 @keyframes noh-pop{from{transform:scale(0)}to{transform:scale(1)}}
 .noh .plates .more{font-size:15px;align-self:center;margin-left:6px}
 .noh .trust{font-size:15px;margin-bottom:26px;padding-left:14px;border-left:3px solid var(--amber)}
+.noh .trust strong{color:var(--ink)}
+.noh .tier-note{font-size:13px;color:rgba(255,255,255,.6);margin:-12px 0 22px}
+
+/* Goal meter framed as tables filled */
+.noh .goal{max-width:760px;margin:0 auto 40px;background:#fff;border-radius:20px;padding:22px 26px;box-shadow:inset 0 0 0 1px var(--line)}
+.noh .goal[hidden]{display:none}
+.noh .goal-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin-bottom:12px}
+.noh .goal-top b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:28px;color:var(--burgundy)}
+.noh .goal-top span{font-size:15px}
+.noh .bar{height:14px;border-radius:999px;background:var(--sand);overflow:hidden}
+.noh .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--amber),var(--burgundy));transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.noh .goal-note{margin-top:10px;font-size:15px;color:var(--ink)}
+
+/* Sponsor levels */
+.noh .sponsors{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:860px;margin:44px auto 0;text-align:left}
+.noh .sponsors a{display:block;text-decoration:none;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.07);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);transition:background .2s, box-shadow .2s}
+.noh .sponsors a:hover{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px var(--amber)}
+.noh .sponsors small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:700}
+.noh .sponsors b{display:block;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:28px;color:#fff;margin:2px 0 4px}
+.noh .sponsors span{display:block;font-size:14px;line-height:1.4;color:rgba(255,255,255,.72)}
+.noh .sponsor-head{margin-top:52px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:700}
 
 /* ---------- 4. CLOSE ---------- */
 .noh .close{background:var(--burgundy-deep);color:#fff;padding:72px 0;text-align:center;position:relative;overflow:hidden}
@@ -167,6 +189,7 @@
   .noh .why .wrap{gap:32px}
   .noh .why,.noh .offer{padding:60px 0}
   .noh .sticky{display:flex}
+  .noh .sponsors{grid-template-columns:1fr 1fr}
   .noh .close{padding-bottom:120px}
 }
 @media (max-width:480px){
@@ -192,7 +215,7 @@
       <h1>One mother. <span class="br">Four children.</span> <em>A full table.</em></h1>
       <p class="hero-sub">Join us for our <strong>first-ever gala</strong>, or give from right here. Every <strong>$50 feeds one North Shore family.</strong></p>
       <div class="when">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Sat, Nov 7 · 6 PM</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Sat, Nov 7 · 6–8 PM</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Bear Hill Golf Club, Stoneham</span>
       </div>
       <div class="btns" id="noh-hero-btns">
@@ -229,8 +252,8 @@
       </div>
       <div class="nums reveal">
         <div class="num"><b>2,449+</b><span>neighbors fed every month</span></div>
-        <div class="num"><b>$50</b><span>fills one family's table</span></div>
-        <div class="num"><b>10+</b><span>years of no questions, no judgment, just groceries</span></div>
+        <div class="num"><b>3,000+</b><span>North Shore families supported in 2026</span></div>
+        <div class="num"><b>10+</b><span>years of no eligibility hoops, no judgment, just groceries</span></div>
       </div>
     </div>
   </section>
@@ -242,6 +265,12 @@
         <div class="eyebrow">Two ways to fill a table</div>
         <h2>Take a seat, or send a meal.</h2>
       </div>
+      <!-- Goal meter: update RAISED in the script at the bottom as gifts come in -->
+      <div class="goal reveal" id="noh-goal" hidden>
+        <div class="goal-top"><b id="noh-tables">0 of 600 tables filled</b><span id="noh-raised">$0 of $30,000 raised</span></div>
+        <div class="bar"><i id="noh-bar"></i></div>
+        <p class="goal-note" id="noh-goal-note"></p>
+      </div>
       <div class="cards">
 
         <div class="card card-gala reveal">
@@ -249,14 +278,15 @@
           <h3>Come to Night of Hope</h3>
           <div class="price"><b id="noh-seat-price">$100</b><s id="noh-seat-was">$140</s><span>per seat</span></div>
           <p class="save" id="noh-save">Save $40 when you book before September 30.</p>
-          <ul class="tiers">
+          <ul class="tiers" id="noh-tables-list">
             <li><span>Table for 10</span><b>$1,000</b></li>
             <li><span>Founding Patron Table for 10</span><b>$2,000</b></li>
           </ul>
+          <p class="tier-note" id="noh-table-note">Table prices available through October 31.</p>
           <ul class="facts">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dinner, program, and celebration</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sat, Nov 7 at 6 PM · 2 North St, Stoneham</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Formal attire · Our first-ever gala</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Plated dinner: New York Strip or Chicken Piccata, with dessert</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sat, Nov 7, 6–8 PM · Bear Hill Golf Club, 2 North St, Stoneham</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Formal attire · Vegetarian &amp; gluten-free on request</li>
           </ul>
           <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
         </div>
@@ -274,7 +304,7 @@
           </div>
           <div class="calc-out" aria-live="polite">$100 feeds <b>2 families</b>.</div>
           <div class="plates" aria-hidden="true"></div>
-          <p class="trust">Every dollar goes to the Lynnfield pantry and the neighbors who rely on it.</p>
+          <p class="trust">Every dollar goes to the Lynnfield pantry and the neighbors who rely on it. <strong>Good Hope, Inc. is a 501(c)(3) nonprofit</strong>, so your gift is tax-deductible to the extent allowed by law.</p>
           <a class="btn btn-primary" id="noh-give" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give $100 Now</a>
         </div>
 
@@ -291,7 +321,14 @@
         <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
         <a class="btn btn-ghost" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give Now</a>
       </div>
-      <p class="sponsor-line">Want to be a founding sponsor ($1,000 to $5,000)? <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener">Contact us</a>. Recognition is always optional.</p>
+      <div class="sponsor-head">Become a founding sponsor</div>
+      <div class="sponsors">
+        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Bronze</small><b>$1,000</b><span>2 tickets · name &amp; logo on signage and website</span></a>
+        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Silver</small><b>$1,500</b><span>3 tickets · prominent signage · social media</span></a>
+        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Gold</small><b>$2,500</b><span>4 tickets · featured in the program and all event communications</span></a>
+        <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener"><small>Platinum</small><b>$5,000</b><span>8 tickets · recognition from the stage · volunteer day for your team</span></a>
+      </div>
+      <p class="sponsor-line">Recognition is always optional. <a href="https://goodhopeinc.org/wp-content/uploads/2026/09/Night-of-Hope-Sponsorship-2026.pdf" target="_blank" rel="noopener">See all sponsor benefits</a> or <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener">contact us</a>.</p>
     </div>
   </section>
 
@@ -310,6 +347,10 @@
      ========================================================= */
   var VIDEO_URL  = "";   // e.g. "https://.../testimonial.mp4"
   var POSTER_URL = "";   // e.g. "https://.../poster.jpg"
+
+  /* Fundraising goal: update RAISED from Givebutter as gifts come in. Set GOAL to 0 to hide the meter. */
+  var GOAL   = 30000;
+  var RAISED = 3500;
 
   var PER_FAMILY = 50; // $50 = one family's groceries
   var EARLY_END = new Date("2026-10-01T00:00:00-04:00");
@@ -348,7 +389,10 @@
   }
 
   /* Hero video: plays muted when on screen (captions are burned in), tap for sound */
-  if(VIDEO_URL){
+  var yt = VIDEO_URL.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+  if(yt){
+    $("noh-film").innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + yt[1] + '?rel=0&modestbranding=1&playsinline=1" title="Good Hope: Night of Hope" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
+  } else if(VIDEO_URL){
     var film = $("noh-film");
     film.innerHTML = '<video muted loop playsinline preload="metadata"></video>' +
       '<button class="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg><span>Play with sound</span></button>';
@@ -370,6 +414,22 @@
         if(calm){ vid.pause(); vid.dataset.stopped = "1"; }
       }
     });
+  }
+
+  /* Goal meter, counted in family tables */
+  if(GOAL > 0){
+    var tablesGoal = Math.floor(GOAL / PER_FAMILY), tablesDone = Math.floor(RAISED / PER_FAMILY);
+    $("noh-goal").hidden = false;
+    $("noh-tables").textContent = tablesDone.toLocaleString("en-US") + " of " + tablesGoal.toLocaleString("en-US") + " tables filled";
+    $("noh-raised").textContent = fmt(RAISED) + " of " + fmt(GOAL) + " raised";
+    $("noh-goal-note").textContent = RAISED >= GOAL
+      ? "We did it. Thank you for filling every table."
+      : "Your seat or gift fills the next one. " + (tablesGoal - tablesDone).toLocaleString("en-US") + " families still need a table this holiday season.";
+    var fill = function(){ $("noh-bar").style.width = Math.max(Math.min(RAISED / GOAL * 100, 100), 2) + "%"; };
+    if("IntersectionObserver" in window){
+      var gio = new IntersectionObserver(function(en){ if(en[0].isIntersecting){ fill(); gio.disconnect(); } }, { threshold: 0.3 });
+      gio.observe($("noh-goal"));
+    } else fill();
   }
 
   /* Gift calculator */
@@ -394,10 +454,12 @@
   } else if(now < GENERAL_END){
     $("noh-seat-price").textContent = "$120"; $("noh-tier-flag").textContent = "General admission";
     $("noh-save").textContent = "Save $20 when you book before October 31.";
+    $("noh-table-note").textContent = "Table prices end October 31.";
     target = GENERAL_END; label = "Price goes to $140 in";
   } else {
     $("noh-seat-price").textContent = "$140"; $("noh-seat-was").remove(); $("noh-tier-flag").textContent = "Final week";
     $("noh-save").textContent = "Remaining seats are limited.";
+    $("noh-tables-list").remove(); $("noh-table-note").remove();
     target = EVENT; label = "Doors open in";
   }
 
