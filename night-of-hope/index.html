@@ -10,180 +10,151 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Questrial&display=swap" rel="stylesheet">
 <style>
 .noh{
-  --navy:#0E3B6A; --navy-deep:#093560; --maroon:#690700; --red:#A82828;
-  --amber:#FFBF69; --sky:#65BFD8; --mist:#F3FAFC; --ink:#0B3632; --body:#4a5560;
+  --burgundy:#690700; --burgundy-deep:#480500; --burgundy-soft:#8a1a10;
+  --amber:#FFBF69; --amber-soft:#ffd79f; --cream:#FFF8F0; --blush:#F7E9E4;
+  --ink:#2B0A08; --body:#5a4a47; --line:rgba(105,7,0,.14);
   font-family:"Questrial",-apple-system,"Segoe UI",Roboto,sans-serif;
-  color:var(--body); background:#fff; line-height:1.6; font-size:18px;
+  color:var(--body); background:var(--cream); line-height:1.55; font-size:18px;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 .noh *,.noh *::before,.noh *::after{box-sizing:border-box;margin:0;padding:0}
-.noh h1,.noh h2,.noh h3,.noh .serif{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.08;color:var(--ink)}
+.noh h1,.noh h2,.noh h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.06;color:var(--ink)}
 .noh a{color:inherit}
 .noh .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.noh .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+.noh .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
 
+/* Buttons */
 .noh .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:18px 34px;border-radius:999px;font-size:17px;font-weight:700;letter-spacing:.02em;
+  padding:18px 32px;border-radius:999px;font-size:17px;font-weight:700;letter-spacing:.02em;
   text-decoration:none;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;cursor:pointer;border:0}
 .noh .btn:hover{transform:translateY(-2px)}
-.noh .btn-maroon{background:var(--maroon);color:#fff;box-shadow:0 10px 30px -10px rgba(105,7,0,.6)}
-.noh .btn-maroon:hover{background:#8a0f05}
-.noh .btn-amber{background:var(--amber);color:var(--navy-deep);box-shadow:0 10px 30px -10px rgba(255,191,105,.7)}
+.noh .btn-primary{background:var(--burgundy);color:#fff;box-shadow:0 12px 30px -12px rgba(105,7,0,.7)}
+.noh .btn-primary:hover{background:var(--burgundy-soft)}
+.noh .btn-amber{background:var(--amber);color:var(--burgundy-deep);box-shadow:0 12px 30px -12px rgba(255,191,105,.8)}
 .noh .btn-amber:hover{background:#ffcb85}
+.noh .btn-line{background:transparent;color:var(--burgundy);box-shadow:inset 0 0 0 2px var(--burgundy)}
 .noh .btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
 .noh .btn-ghost:hover{box-shadow:inset 0 0 0 2px #fff}
 
-.noh .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease, transform 1s ease}
+/* Gentle reveal below the fold only */
+.noh .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease}
 .noh .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.noh .reveal{opacity:1;transform:none;transition:none}}
 
-/* ---------- 1. HERO: the video is the story ---------- */
-.noh .hero{background:var(--mist);padding:72px 0 96px;text-align:center}
-.noh .hero .eyebrow{color:var(--maroon)}
-.noh .hero h1{font-size:clamp(40px,7vw,84px);margin:18px auto 20px}
-.noh .hero h1 em{color:var(--maroon);font-style:italic}
-.noh .hero-sub{max-width:36ch;margin:0 auto 44px;font-size:clamp(17px,1.8vw,20px)}
-.noh .film{position:relative;max-width:900px;margin:0 auto;border-radius:24px;overflow:hidden;background:#000;
-  aspect-ratio:16/9;box-shadow:0 40px 80px -40px rgba(9,53,96,.6)}
-.noh .film video{display:block;width:100%;height:100%;object-fit:cover}
-.noh .sound{position:absolute;right:16px;top:16px;display:inline-flex;align-items:center;gap:8px;
-  padding:10px 16px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-size:14px;font-weight:700;
-  background:rgba(255,255,255,.92);color:var(--navy-deep);box-shadow:0 6px 20px -8px rgba(0,0,0,.5);transition:background .2s}
-.noh .sound:hover{background:#fff}
-.noh .sound svg{width:16px;height:16px}
-.noh .film-cap{margin-top:18px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
-.noh .scroll-cue{margin:56px auto 0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--body);
-  display:flex;flex-direction:column;align-items:center;gap:12px}
-.noh .scroll-cue span{display:block;width:1px;height:44px;background:linear-gradient(var(--maroon),transparent);animation:noh-drip 2s ease-in-out infinite}
-@keyframes noh-drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* ---------- 1. HERO: everything needed, no scrolling ---------- */
+.noh .hero{padding:64px 0 56px;text-align:center;
+  background:radial-gradient(ellipse 70% 55% at 50% 0%, var(--blush), transparent 70%), var(--cream)}
+.noh .hero .eyebrow{color:var(--burgundy)}
+.noh .hero h1{font-size:clamp(42px,7vw,84px);margin:16px auto 18px}
+.noh .hero h1 em{display:block;color:var(--burgundy);font-style:italic}
+.noh .hero-sub{max-width:40ch;margin:0 auto 22px;font-size:clamp(17px,1.9vw,20px)}
+.noh .hero-sub strong{color:var(--ink)}
+.noh .when{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 auto 30px}
+.noh .when span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#fff;
+  box-shadow:inset 0 0 0 1px var(--line);font-size:15px;color:var(--ink)}
+.noh .when svg{width:16px;height:16px;color:var(--burgundy)}
+.noh .hero .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.noh .deadline{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:28px;
+  padding:12px 20px;border-radius:16px;background:var(--burgundy-deep);color:#fff}
+.noh .deadline[hidden]{display:none}
+.noh .deadline small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.noh .clock{display:flex;gap:10px;font-variant-numeric:tabular-nums}
+.noh .clock div{text-align:center;min-width:44px}
+.noh .clock b{display:block;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:28px;line-height:1}
+.noh .clock i{font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
 
-/* Bridge: from her story to everyone's */
-.noh .bridge{background:var(--navy-deep);color:#fff;padding:120px 0;position:relative}
-.noh .bridge::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,191,105,.14), transparent 70%);pointer-events:none}
-.noh .bridge .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
-.noh .bridge h2{color:#fff;font-size:clamp(36px,5.5vw,64px)}
-.noh .bridge h2 em{color:var(--amber);font-style:italic}
-.noh .bridge p{color:rgba(255,255,255,.75);font-size:clamp(18px,2vw,21px);max-width:38ch}
-.noh .bridge p + p{margin-top:18px}
+/* ---------- 2. WHY: one face, three numbers ---------- */
+.noh .why{background:var(--burgundy);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+.noh .why::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 50% 70% at 0% 0%, rgba(255,191,105,.16), transparent 70%)}
+.noh .why .wrap{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.noh .why blockquote{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(28px,3.8vw,44px);line-height:1.2;color:#fff}
+.noh .why blockquote::before{content:"\201C";display:block;font-size:96px;line-height:.55;color:var(--amber);margin-bottom:6px}
+.noh .why blockquote em{color:var(--amber)}
+.noh .why cite{display:block;margin-top:18px;font-style:normal;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.noh .nums{display:grid;gap:14px}
+.noh .num{display:flex;align-items:baseline;gap:16px;padding:18px 0;border-top:1px solid rgba(255,255,255,.18)}
+.noh .num:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+.noh .num b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(36px,4.4vw,50px);line-height:1;color:var(--amber);min-width:3.6ch}
+.noh .num span{color:rgba(255,255,255,.85);font-size:17px}
 
-.noh .turn{background:var(--amber);color:var(--navy-deep);padding:120px 0;text-align:center}
-.noh .turn .eyebrow{color:var(--maroon)}
-.noh .turn h2{color:var(--navy-deep);font-size:clamp(40px,7vw,84px);margin:18px auto 26px;max-width:14ch}
-.noh .turn p{font-size:clamp(18px,2vw,22px);max-width:40ch;margin:0 auto 40px;color:#3b3325}
-.noh .turn .btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.noh .turn .btn-outline{background:transparent;color:var(--navy-deep);box-shadow:inset 0 0 0 2px var(--navy-deep)}
+/* ---------- 3. THE OFFER: two clear choices ---------- */
+.noh .offer{padding:80px 0}
+.noh .offer-head{text-align:center;margin-bottom:40px}
+.noh .offer-head .eyebrow{color:var(--burgundy)}
+.noh .offer-head h2{font-size:clamp(34px,5vw,56px);margin-top:12px}
+.noh .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.noh .card{border-radius:26px;padding:40px clamp(22px,3.5vw,42px);display:flex;flex-direction:column}
+.noh .card h3{font-size:clamp(30px,3.4vw,40px);margin:10px 0 10px}
+.noh .card > p{margin-bottom:22px}
+.noh .card .btn{margin-top:auto}
+.noh .flag{display:inline-block;align-self:flex-start;background:var(--amber);color:var(--burgundy-deep);font-size:12px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
 
-.noh .impact{background:var(--mist);padding:120px 0}
-.noh .impact-head{text-align:center;margin-bottom:64px}
-.noh .impact-head .eyebrow{color:var(--sky)}
-.noh .impact-head h2{font-size:clamp(36px,5.5vw,64px);margin-top:14px}
-.noh .impact-head h2 span{color:var(--maroon)}
-.noh .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.noh .stat{background:#fff;border-radius:20px;padding:34px 24px;text-align:center;box-shadow:0 18px 40px -28px rgba(9,53,96,.45)}
-.noh .stat b{display:block;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(40px,5vw,58px);color:var(--navy);line-height:1}
-.noh .stat small{display:block;margin-top:12px;font-size:15px;line-height:1.45}
+.noh .card-gala{background:var(--burgundy-deep);color:rgba(255,255,255,.82)}
+.noh .card-gala h3{color:#fff}
+.noh .price{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.noh .price b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:64px;line-height:1;color:#fff}
+.noh .price s{font-size:22px;color:rgba(255,255,255,.5)}
+.noh .price span{font-size:15px;color:rgba(255,255,255,.7)}
+.noh .save{color:var(--amber);font-size:15px;margin-bottom:22px}
+.noh .tiers{list-style:none;margin:0 0 22px}
+.noh .tiers li{padding:11px 0;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:16px}
+.noh .tiers li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.noh .tiers b{color:#fff}
+.noh .facts{list-style:none;margin:0 0 28px;display:grid;gap:8px;font-size:16px}
+.noh .facts li{display:flex;gap:10px;align-items:flex-start}
+.noh .facts svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--amber)}
 
-.noh .calc{margin-top:64px;background:var(--navy);color:#fff;border-radius:28px;padding:56px clamp(24px,5vw,64px);
-  display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
-.noh .calc h3{color:#fff;font-size:clamp(30px,3.6vw,44px)}
-.noh .calc p{color:rgba(255,255,255,.75);margin-top:14px}
-.noh .chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
-.noh .chip{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:999px;
-  padding:12px 22px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s}
-.noh .chip:hover{border-color:var(--amber)}
-.noh .chip[aria-pressed="true"]{background:var(--amber);color:var(--navy-deep);border-color:var(--amber)}
-.noh .calc-out{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(28px,3.2vw,38px);line-height:1.2;margin-bottom:26px}
-.noh .calc-out b{font-weight:400;color:var(--amber)}
-.noh .plates{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px;min-height:30px}
-.noh .plate{width:22px;height:22px;border-radius:50%;background:var(--amber);box-shadow:inset 0 0 0 5px #ffd79f;
+.noh .card-give{background:#fff;box-shadow:inset 0 0 0 2px var(--line), 0 30px 60px -40px rgba(72,5,0,.5)}
+.noh .card-give .flag{background:var(--blush);color:var(--burgundy)}
+.noh .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.noh .chip{background:#fff;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;
+  padding:11px 20px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s}
+.noh .chip:hover{border-color:var(--burgundy)}
+.noh .chip[aria-pressed="true"]{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+.noh .calc-out{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(26px,3vw,34px);line-height:1.2;color:var(--ink);margin-bottom:16px}
+.noh .calc-out b{font-weight:400;color:var(--burgundy)}
+.noh .plates{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;min-height:26px}
+.noh .plate{width:22px;height:22px;border-radius:50%;background:var(--amber);box-shadow:inset 0 0 0 5px var(--amber-soft);
   animation:noh-pop .35s ease backwards}
 @keyframes noh-pop{from{transform:scale(0)}to{transform:scale(1)}}
-.noh .plates .more{font-size:15px;color:rgba(255,255,255,.7);align-self:center;margin-left:6px}
+.noh .plates .more{font-size:15px;align-self:center;margin-left:6px}
+.noh .trust{font-size:15px;margin-bottom:26px;padding-left:14px;border-left:3px solid var(--amber)}
 
-.noh .goal{margin-top:48px;background:#fff;border-radius:20px;padding:34px clamp(22px,4vw,44px);display:none;
-  box-shadow:0 18px 40px -28px rgba(9,53,96,.45)}
-.noh .goal.on{display:block}
-.noh .goal-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:16px}
-.noh .goal-top b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:34px;color:var(--navy)}
-.noh .bar{height:18px;border-radius:999px;background:#e3eef3;overflow:hidden}
-.noh .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--sky),var(--navy));transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
-.noh .goal-note{margin-top:14px;font-size:15px}
-
-.noh .ways{padding:120px 0}
-.noh .ways-head{text-align:center;margin-bottom:56px}
-.noh .ways-head .eyebrow{color:var(--maroon)}
-.noh .ways-head h2{font-size:clamp(36px,5.5vw,64px);margin-top:14px}
-.noh .ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.noh .way{border-radius:28px;padding:48px clamp(24px,4vw,48px);display:flex;flex-direction:column}
-.noh .way h3{font-size:clamp(32px,3.6vw,44px);margin:14px 0 16px}
-.noh .way p{margin-bottom:28px}
-.noh .way ul{list-style:none;margin:0 0 32px}
-.noh .way li{padding:10px 0;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:16px}
-.noh .way li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
-.noh .way .btn{margin-top:auto;align-self:flex-start}
-.noh .way-gala{background:var(--navy-deep);color:rgba(255,255,255,.8)}
-.noh .way-gala h3{color:#fff}
-.noh .way-gala .eyebrow{color:var(--amber)}
-.noh .way-gala li b{color:#fff}
-.noh .way-give{background:var(--maroon);color:rgba(255,255,255,.85)}
-.noh .way-give h3{color:#fff}
-.noh .way-give .eyebrow{color:var(--amber)}
-.noh .price-flag{display:inline-block;background:var(--amber);color:var(--navy-deep);font-size:12px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-left:8px;vertical-align:middle}
-
-.noh .details{background:var(--navy);color:#fff;padding:110px 0;text-align:center}
-.noh .details .eyebrow{color:var(--sky)}
-.noh .details h2{color:#fff;font-size:clamp(44px,8vw,96px);margin:14px 0 8px}
-.noh .details h2 em{color:var(--amber)}
-.noh .details .sub{color:rgba(255,255,255,.75);font-size:20px}
-.noh .facts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 40px;margin:40px 0 50px;font-size:17px}
-.noh .facts div{color:rgba(255,255,255,.7)}
-.noh .facts b{display:block;color:#fff;font-size:20px}
-.noh .count{display:flex;justify-content:center;gap:clamp(10px,3vw,28px);margin-bottom:46px}
-.noh .count div{min-width:clamp(64px,16vw,110px)}
-.noh .count b{display:block;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(44px,8vw,80px);line-height:1;color:#fff}
-.noh .count small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky)}
-.noh .urgency{margin-top:18px;color:var(--amber);font-size:16px}
-
-.noh .voice{padding:120px 0;background:var(--mist)}
-.noh .voice blockquote{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(28px,4vw,46px);line-height:1.25;
-  color:var(--ink);max-width:24ch;margin:0 auto;text-align:center;position:relative}
-.noh .voice blockquote::before{content:"\201C";display:block;font-size:120px;line-height:.6;color:var(--amber);margin-bottom:10px}
-.noh .voice cite{display:block;text-align:center;margin-top:28px;font-style:normal;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
-
-.noh .close{background:var(--navy-deep);color:#fff;padding:140px 0;text-align:center;position:relative;overflow:hidden}
-.noh .close::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 100%, rgba(255,191,105,.22), transparent 70%)}
+/* ---------- 4. CLOSE ---------- */
+.noh .close{background:var(--burgundy);color:#fff;padding:72px 0;text-align:center;position:relative;overflow:hidden}
+.noh .close::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 50% 80% at 50% 100%, rgba(255,191,105,.2), transparent 70%)}
 .noh .close .wrap{position:relative}
-.noh .close h2{color:#fff;font-size:clamp(40px,7vw,86px);max-width:16ch;margin:0 auto 24px}
+.noh .close h2{color:#fff;font-size:clamp(34px,5.5vw,60px);max-width:18ch;margin:0 auto 14px}
 .noh .close h2 em{color:var(--amber)}
-.noh .close p{color:rgba(255,255,255,.75);max-width:44ch;margin:0 auto 44px;font-size:20px}
-.noh .close .btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.noh .sponsor-line{margin-top:56px;font-size:16px;color:rgba(255,255,255,.6)}
+.noh .close p{color:rgba(255,255,255,.8);max-width:46ch;margin:0 auto 30px}
+.noh .close .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.noh .sponsor-line{margin-top:34px!important;margin-bottom:0!important;font-size:15px;color:rgba(255,255,255,.65)!important}
 .noh .sponsor-line a{color:var(--amber)}
 
+/* Sticky mobile action bar */
 .noh .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-  background:rgba(9,53,96,.96);backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .35s ease}
+  background:rgba(72,5,0,.96);backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .3s ease}
 .noh .sticky.show{transform:none}
 .noh .sticky .btn{flex:1;padding:14px 10px;font-size:15px}
 
 @media (max-width:860px){
-  .noh .stats{grid-template-columns:1fr 1fr}
-  .noh .calc,.noh .ways-grid,.noh .bridge .wrap{grid-template-columns:1fr}
-  .noh .bridge .wrap{gap:24px}
-  .noh .hero{padding:56px 0 72px}
-  .noh .film{border-radius:16px}
-  .noh .sound{right:10px;top:10px;padding:8px 12px;font-size:13px}
-  .noh .calc{gap:28px}
+  .noh .why .wrap,.noh .cards{grid-template-columns:1fr}
+  .noh .why .wrap{gap:32px}
+  .noh .why,.noh .offer{padding:60px 0}
   .noh .sticky{display:flex}
-  .noh .close{padding-bottom:180px}
+  .noh .close{padding-bottom:120px}
 }
 @media (max-width:480px){
   .noh{font-size:17px}
-  .noh .stat{padding:26px 14px}
-  .noh .beat{min-height:52vh}
-  .noh .btn{width:100%}
-  .noh .turn .btns .btn,.noh .close .btns .btn{width:100%}
+  .noh .hero{padding:44px 0 40px}
+  .noh .hero .btns .btn,.noh .close .btns .btn,.noh .card .btn{width:100%}
+  .noh .when span{font-size:14px;padding:7px 12px}
+  .noh .price b{font-size:54px}
+  .noh .hero h1 .br{display:block}
+  .noh .hero .eyebrow{letter-spacing:.14em}
 }
 </style>
 </head>
@@ -191,221 +162,154 @@
 
 <div class="noh">
 
-  <!-- ========== 1. HERO: the video tells the story ========== -->
+  <!-- ========== 1. HERO ========== -->
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow reveal">Good Hope Inc. &nbsp;·&nbsp; Night of Hope 2026</div>
-      <h1 class="reveal">One mother.<br>Four children.<br><em>A full table.</em></h1>
-      <p class="hero-sub reveal">Hear it from the neighbors who come through our Lynnfield pantry.</p>
-      <div class="film reveal">
-        <!-- Video and poster are hosted on the goodhope GitHub repo via jsDelivr. To swap them, replace the src and poster URLs. -->
-        <video id="noh-video" src="https://cdn.jsdelivr.net/gh/sjuvvadi-alt/goodhope@a7b1acec68daa7e5cfcd95942b85dca323e9e285/night-of-hope/testimonial.mp4" poster="https://cdn.jsdelivr.net/gh/sjuvvadi-alt/goodhope@a7b1acec68daa7e5cfcd95942b85dca323e9e285/night-of-hope/poster.jpg" muted loop playsinline preload="metadata"></video>
-        <button class="sound" id="noh-sound" type="button" aria-pressed="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
-          <span>Play with sound</span>
-        </button>
+      <div class="eyebrow">Good Hope Inc. &nbsp;·&nbsp; Night of Hope</div>
+      <h1>One mother. <span class="br">Four children.</span> <em>A full table.</em></h1>
+      <p class="hero-sub">Join us for our <strong>first-ever gala</strong>, or give from right here. Every <strong>$50 feeds one North Shore family.</strong></p>
+      <div class="when">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Sat, Nov 7 · 6 PM</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Bear Hill Golf Club, Stoneham</span>
       </div>
-      <p class="film-cap reveal">Neighbors at the Good Hope pantry, Lynnfield</p>
-      <div class="scroll-cue reveal">Why it matters<span></span></div>
-    </div>
-  </section>
-
-  <!-- Bridge: her story is thousands of stories -->
-  <section class="bridge">
-    <div class="wrap reveal">
-      <h2>She isn't alone. <em>Not even close.</em></h2>
-      <div>
-        <p>Every month, more than 2,449 neighbors walk through the doors of the Good Hope pantry. No questions asked. No judgment. Just groceries.</p>
-        <p>As the holidays get closer, the math only gets harder. This November, we need you to help us keep that promise.</p>
+      <div class="btns" id="noh-hero-btns">
+        <a class="btn btn-primary" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
+        <a class="btn btn-line" href="#noh-give-card">Can't come? Give</a>
+      </div>
+      <div class="deadline" id="noh-deadline" hidden aria-live="off">
+        <small id="noh-deadline-label">Early Bird ends in</small>
+        <div class="clock">
+          <div><b id="noh-d">00</b><i>Days</i></div>
+          <div><b id="noh-h">00</b><i>Hrs</i></div>
+          <div><b id="noh-m">00</b><i>Min</i></div>
+          <div><b id="noh-s">00</b><i>Sec</i></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="turn">
-    <div class="wrap reveal">
-      <div class="eyebrow">This is where you come in</div>
-      <h2>$50 fills one family's table.</h2>
-      <p>Reach our goal and <strong>thousands of North Shore families</strong> will have food this holiday season and in the months that follow.</p>
-      <div class="btns">
-        <a class="btn btn-maroon" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Buy Gala Tickets</a>
-        <a class="btn btn-outline" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give Now</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="impact">
+  <!-- ========== 2. WHY IT MATTERS ========== -->
+  <section class="why">
     <div class="wrap">
-      <div class="impact-head reveal">
-        <div class="eyebrow">The math of hope</div>
-        <h2>Small gifts. <span>Full tables.</span></h2>
+      <div class="reveal">
+        <blockquote>It helps me feed my children. I'm a single mother. <em>I have four children.</em></blockquote>
+        <cite>A neighbor at the Good Hope pantry, Lynnfield</cite>
       </div>
-
-      <div class="stats">
-        <div class="stat reveal"><b data-count="3000" data-suffix="+">0</b><small>families we're feeding across the North Shore in 2026</small></div>
-        <div class="stat reveal"><b data-count="2449" data-suffix="+">0</b><small>neighbors fed every single month</small></div>
-        <div class="stat reveal"><b data-count="50" data-prefix="$">0</b><small>stocks one family's groceries for a distribution day</small></div>
-        <div class="stat reveal"><b data-count="10" data-suffix="+">0</b><small>years standing alongside our neighbors</small></div>
-      </div>
-
-      <div class="calc reveal">
-        <div>
-          <h3>See what your gift puts on the table.</h3>
-          <p>Every $50 covers one family's groceries. Tap an amount.</p>
-        </div>
-        <div>
-          <div class="chips" role="group" aria-label="Choose a gift amount">
-            <button class="chip" data-amt="50">$50</button>
-            <button class="chip" data-amt="100" aria-pressed="true">$100</button>
-            <button class="chip" data-amt="250">$250</button>
-            <button class="chip" data-amt="500">$500</button>
-            <button class="chip" data-amt="1000">$1,000</button>
-          </div>
-          <div class="calc-out" aria-live="polite">$100 feeds <b>2 families</b>.</div>
-          <div class="plates" aria-hidden="true"></div>
-          <a class="btn btn-amber" id="noh-give" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give $100 Now</a>
-        </div>
-      </div>
-
-      <div class="goal reveal" id="noh-goal">
-        <div class="goal-top">
-          <div><b id="noh-raised">$0</b> raised</div>
-          <div>Goal: <strong id="noh-target">$0</strong></div>
-        </div>
-        <div class="bar"><i id="noh-bar"></i></div>
-        <div class="goal-note" id="noh-goal-note"></div>
+      <div class="nums reveal">
+        <div class="num"><b>2,449+</b><span>neighbors fed every month</span></div>
+        <div class="num"><b>$50</b><span>fills one family's table</span></div>
+        <div class="num"><b>10+</b><span>years of no questions, no judgment, just groceries</span></div>
       </div>
     </div>
   </section>
 
-  <section class="ways">
+  <!-- ========== 3. THE OFFER ========== -->
+  <section class="offer">
     <div class="wrap">
-      <div class="ways-head reveal">
-        <div class="eyebrow">Two ways to be part of it</div>
-        <h2>Take a seat, or just give.</h2>
+      <div class="offer-head reveal">
+        <div class="eyebrow">Two ways to fill a table</div>
+        <h2>Take a seat, or send a meal.</h2>
       </div>
-      <div class="ways-grid">
-        <div class="way way-gala reveal">
-          <div class="eyebrow">Our first-ever gala</div>
+      <div class="cards">
+
+        <div class="card card-gala reveal">
+          <span class="flag" id="noh-tier-flag">Early Bird</span>
           <h3>Come to Night of Hope</h3>
-          <p>An elegant evening of dinner, celebration, and community. Every seat helps fill a family's table.</p>
-          <ul>
-            <li><span>Individual seat <span class="price-flag" id="noh-tier-flag">Early Bird</span></span><b id="noh-seat-price">$100</b></li>
+          <div class="price"><b id="noh-seat-price">$100</b><s id="noh-seat-was">$140</s><span>per seat</span></div>
+          <p class="save" id="noh-save">Save $40 when you book before September 30.</p>
+          <ul class="tiers">
             <li><span>Table for 10</span><b>$1,000</b></li>
             <li><span>Founding Patron Table for 10</span><b>$2,000</b></li>
           </ul>
-          <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Get My Tickets</a>
-        </div>
-        <div class="way way-give reveal">
-          <div class="eyebrow">Can't make it?</div>
-          <h3>Give from right here</h3>
-          <p>You don't need a ticket to feed a family. Every dollar goes to the Lynnfield pantry and the neighbors who rely on it, especially now, as the holidays approach.</p>
-          <ul>
-            <li><span>Feeds 1 family</span><b>$50</b></li>
-            <li><span>Feeds 5 families</span><b>$250</b></li>
-            <li><span>Feeds 20 families</span><b>$1,000</b></li>
+          <ul class="facts">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dinner, program, and celebration</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sat, Nov 7 at 6 PM · 2 North St, Stoneham</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Formal attire · Our first-ever gala</li>
           </ul>
-          <a class="btn btn-amber" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give Now</a>
+          <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
         </div>
+
+        <div class="card card-give reveal" id="noh-give-card">
+          <span class="flag">Can't make it?</span>
+          <h3>Fill a table from here</h3>
+          <p>Tap an amount and see how many families you feed.</p>
+          <div class="chips" role="group" aria-label="Choose a gift amount">
+            <button class="chip" type="button" data-amt="50">$50</button>
+            <button class="chip" type="button" data-amt="100" aria-pressed="true">$100</button>
+            <button class="chip" type="button" data-amt="250">$250</button>
+            <button class="chip" type="button" data-amt="500">$500</button>
+            <button class="chip" type="button" data-amt="1000">$1,000</button>
+          </div>
+          <div class="calc-out" aria-live="polite">$100 feeds <b>2 families</b>.</div>
+          <div class="plates" aria-hidden="true"></div>
+          <p class="trust">Every dollar goes to the Lynnfield pantry and the neighbors who rely on it.</p>
+          <a class="btn btn-primary" id="noh-give" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give $100 Now</a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="details">
-    <div class="wrap">
-      <div class="eyebrow reveal">Saturday · November 7, 2026</div>
-      <h2 class="reveal">Night <em>of</em> Hope</h2>
-      <p class="sub reveal">Good Hope Inc.'s first-ever gala. Be there for the first one.</p>
-      <div class="facts reveal">
-        <div><b>Bear Hill Golf Club</b>2 North Street, Stoneham, MA</div>
-        <div><b>6:00 PM</b>Dinner &amp; program</div>
-        <div><b>Formal Attire</b>Dress to celebrate</div>
-      </div>
-      <div class="count reveal" aria-label="Countdown to Night of Hope">
-        <div><b id="noh-d">00</b><small>Days</small></div>
-        <div><b id="noh-h">00</b><small>Hours</small></div>
-        <div><b id="noh-m">00</b><small>Minutes</small></div>
-        <div><b id="noh-s">00</b><small>Seconds</small></div>
-      </div>
-      <div class="reveal">
-        <a class="btn btn-maroon" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
-        <p class="urgency" id="noh-urgency"></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="voice">
-    <div class="wrap reveal">
-      <blockquote>I've packed bags at the Lynnfield pantry every other Thursday for the last 10 years. Seeing neighbors come through every month is why I keep showing up.</blockquote>
-      <cite>Damaris O'Connor &nbsp;·&nbsp; Food Director</cite>
-    </div>
-  </section>
-
+  <!-- ========== 4. CLOSE ========== -->
   <section class="close">
     <div class="wrap reveal">
-      <h2>No one in our community <em>forgotten.</em></h2>
-      <p>That's the whole hope. One night, one room, and a community deciding that this holiday season, every family gets to eat.</p>
+      <h2>Be in the room for <em>the first one.</em></h2>
+      <p>One night, one room, and a community deciding that this holiday season, every family gets to eat.</p>
       <div class="btns">
-        <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Buy Gala Tickets</a>
+        <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve My Seat</a>
         <a class="btn btn-ghost" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give Now</a>
       </div>
       <p class="sponsor-line">Want to be a founding sponsor ($1,000 to $5,000)? <a href="https://goodhopeinc.org/contact/" target="_blank" rel="noopener">Contact us</a>. Recognition is always optional.</p>
     </div>
   </section>
 
+  <!-- Sticky mobile action bar -->
   <div class="sticky" id="noh-sticky">
-    <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Tickets</a>
-    <a class="btn btn-ghost" href="https://goodhopeinc.org/donate/" target="_blank" rel="noopener">Give</a>
+    <a class="btn btn-amber" href="https://givebutter.com/c/goodhopenightofhope2026" target="_blank" rel="noopener">Reserve Seat</a>
+    <a class="btn btn-ghost" href="#noh-give-card">Give</a>
   </div>
 </div>
 
 <script>
 (function(){
-  var GOAL   = 0;
-  var RAISED = 0;
-  var PER_FAMILY = 50;
-
+  var PER_FAMILY = 50; // $50 = one family's groceries
+  var EARLY_END = new Date("2026-10-01T00:00:00-04:00");
+  var GENERAL_END = new Date("2026-11-01T00:00:00-04:00");
   var EVENT = new Date("2026-11-07T18:00:00-05:00");
+
   var root = document.querySelector(".noh");
   var fmt = function(n){ return "$" + n.toLocaleString("en-US"); };
+  var $ = function(id){ return document.getElementById(id); };
 
-  function countUp(el){
-    var end = +el.dataset.count, pre = el.dataset.prefix || "", suf = el.dataset.suffix || "", t0 = null;
-    function step(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1600, 1), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = pre + Math.round(end * e).toLocaleString("en-US") + suf; if(p < 1) requestAnimationFrame(step); }
-    requestAnimationFrame(step);
+  /* Carry ad tracking (utm_*, fbclid, gclid) through to the ticket and donate links */
+  var q = new URLSearchParams(location.search), keep = new URLSearchParams();
+  q.forEach(function(v, k){ if(/^utm_|^fbclid$|^gclid$/.test(k)) keep.set(k, v); });
+  if(keep.toString()){
+    root.querySelectorAll('a[href^="https://givebutter.com"],a[href^="https://goodhopeinc.org/donate"]').forEach(function(a){
+      var u = new URL(a.href); keep.forEach(function(v, k){ u.searchParams.set(k, v); }); a.href = u.toString();
+    });
   }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(!en.isIntersecting) return;
-      en.target.classList.add("in");
-      en.target.querySelectorAll("[data-count]").forEach(countUp);
-      if(en.target.id === "noh-goal") document.getElementById("noh-bar").style.width = Math.min(RAISED / GOAL * 100, 100) + "%";
-      io.unobserve(en.target);
-    });
-  }, { threshold: 0.25 });
-  root.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
 
-  /* Hero video: plays muted in view (captions are burned in), tap for sound */
-  var vid = document.getElementById("noh-video"), snd = document.getElementById("noh-sound"), sndLabel = snd.querySelector("span");
-  var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches, userPaused = false;
-  if(calm) sndLabel.textContent = "Play video";
-  new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ if(!calm && !userPaused) vid.play().catch(function(){}); }
-      else vid.pause();
+  /* Smooth scroll for in-page links */
+  root.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      var t = document.querySelector(a.getAttribute("href")); if(!t) return;
+      e.preventDefault(); t.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  }, { threshold: 0.4 }).observe(vid);
-  snd.addEventListener("click", function(){
-    if(vid.muted || vid.paused){
-      vid.muted = false; vid.currentTime = 0; vid.play().catch(function(){});
-      sndLabel.textContent = "Mute"; snd.setAttribute("aria-pressed", "true"); userPaused = false;
-    } else {
-      vid.muted = true; sndLabel.textContent = "Play with sound"; snd.setAttribute("aria-pressed", "false");
-      if(calm){ vid.pause(); userPaused = true; }
-    }
   });
 
-  var out = root.querySelector(".calc-out"), plates = root.querySelector(".plates"), give = document.getElementById("noh-give");
+  /* Reveal below-the-fold blocks */
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: 0.15 });
+    root.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    root.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* Gift calculator */
+  var out = root.querySelector(".calc-out"), plates = root.querySelector(".plates"), give = $("noh-give");
   function setAmt(amt){
     var fam = Math.floor(amt / PER_FAMILY);
     out.innerHTML = fmt(amt) + " feeds <b>" + fam + " famil" + (fam === 1 ? "y" : "ies") + "</b>.";
@@ -419,39 +323,37 @@
   root.querySelectorAll(".chip").forEach(function(c){ c.addEventListener("click", function(){ setAmt(+c.dataset.amt); }); });
   setAmt(100);
 
-  if(GOAL > 0){
-    document.getElementById("noh-goal").classList.add("on");
-    document.getElementById("noh-raised").textContent = fmt(RAISED);
-    document.getElementById("noh-target").textContent = fmt(GOAL);
-    var fed = Math.floor(RAISED / PER_FAMILY), left = Math.max(Math.ceil((GOAL - RAISED) / PER_FAMILY), 0);
-    document.getElementById("noh-goal-note").innerHTML = RAISED >= GOAL
-      ? "<strong>We did it.</strong> " + fed.toLocaleString() + " families fed. Thank you."
-      : "<strong>" + fed.toLocaleString() + " families fed so far.</strong> " + left.toLocaleString() + " more families are waiting on us.";
-  }
-
-  var now = new Date(), flag = document.getElementById("noh-tier-flag"), price = document.getElementById("noh-seat-price"), urg = document.getElementById("noh-urgency");
-  if(now < new Date("2026-10-01T00:00:00-04:00")){
-    var dl = Math.ceil((new Date("2026-10-01T00:00:00-04:00") - now) / 864e5);
-    urg.textContent = "Early Bird pricing ends September 30" + (dl <= 14 ? " (only " + dl + " day" + (dl === 1 ? "" : "s") + " left)" : "") + ". Lock in $100 seats before prices go up.";
-  } else if(now < new Date("2026-11-01T00:00:00-04:00")){
-    price.textContent = "$120"; flag.textContent = "General"; urg.textContent = "Seats are $120 through October 31, then $140 during the final week.";
+  /* Ticket tiers switch by date; the countdown always points at the next deadline */
+  var now = new Date(), target = null, label = "";
+  if(now < EARLY_END){
+    target = EARLY_END; label = "Early Bird ends in";
+  } else if(now < GENERAL_END){
+    $("noh-seat-price").textContent = "$120"; $("noh-tier-flag").textContent = "General admission";
+    $("noh-save").textContent = "Save $20 when you book before October 31.";
+    target = GENERAL_END; label = "Price goes to $140 in";
   } else {
-    price.textContent = "$140"; flag.textContent = "Final Week"; urg.textContent = "Final week. Remaining seats are limited.";
+    $("noh-seat-price").textContent = "$140"; $("noh-seat-was").remove(); $("noh-tier-flag").textContent = "Final week";
+    $("noh-save").textContent = "Remaining seats are limited.";
+    target = EVENT; label = "Doors open in";
   }
 
   function pad(n){ return (n < 10 ? "0" : "") + n; }
-  function tick(){
-    var ms = Math.max(EVENT - new Date(), 0);
-    document.getElementById("noh-d").textContent = pad(Math.floor(ms / 864e5));
-    document.getElementById("noh-h").textContent = pad(Math.floor(ms / 36e5) % 24);
-    document.getElementById("noh-m").textContent = pad(Math.floor(ms / 6e4) % 60);
-    document.getElementById("noh-s").textContent = pad(Math.floor(ms / 1e3) % 60);
+  if(now < EVENT){
+    $("noh-deadline").hidden = false; $("noh-deadline-label").textContent = label;
+    var tick = function(){
+      var ms = Math.max(target - new Date(), 0);
+      $("noh-d").textContent = pad(Math.floor(ms / 864e5));
+      $("noh-h").textContent = pad(Math.floor(ms / 36e5) % 24);
+      $("noh-m").textContent = pad(Math.floor(ms / 6e4) % 60);
+      $("noh-s").textContent = pad(Math.floor(ms / 1e3) % 60);
+    };
+    tick(); setInterval(tick, 1000);
   }
-  tick(); setInterval(tick, 1000);
 
-  var sticky = document.getElementById("noh-sticky"), turn = root.querySelector(".turn");
+  /* Sticky mobile bar appears once the hero buttons scroll away */
+  var sticky = $("noh-sticky"), heroBtns = $("noh-hero-btns");
   window.addEventListener("scroll", function(){
-    sticky.classList.toggle("show", turn.getBoundingClientRect().top < window.innerHeight * 0.5);
+    sticky.classList.toggle("show", heroBtns.getBoundingClientRect().bottom < 0);
   }, { passive: true });
 })();
 </script>
