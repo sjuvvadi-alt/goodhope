@@ -25,21 +25,21 @@ if(META_PIXEL_ID && !window.fbq){
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mrs+Saint+Delafield&family=Noto+Serif+Display:wdth,wght@62.5..100,300..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Display:ital,wdth,wght@0,62.5..100,300..500;1,62.5..100,300..500&display=swap" rel="stylesheet">
 <style>
 .nohs{
   /* Brand colors and fonts from the Night of Hope Save the Date (same as the main gala page) */
   --burgundy:#640510; --burgundy-deep:#45030B; --burgundy-soft:#7E1020;
   --amber:#D8C28E; --amber-soft:#EBDDB9; --gold-bright:#B69E6A; --gold:#7A6236;
   --cream:#FFF9EF; --sand:#F5EADB; --ink:#190603; --body:#4f4340; --line:rgba(100,5,16,.14);
-  --display:"Noto Serif Display",Georgia,serif; --script:"Mrs Saint Delafield",cursive;
+  --display:"Noto Serif Display",Georgia,serif;
   font-family:"Montserrat",-apple-system,"Segoe UI",Roboto,sans-serif;
   color:var(--body); background:var(--cream); line-height:1.6; font-size:17px;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 .nohs *,.nohs *::before,.nohs *::after{box-sizing:border-box;margin:0;padding:0}
 .nohs h1,.nohs h2,.nohs h3{font-family:var(--display);font-stretch:62.5%;font-weight:300;line-height:.98;letter-spacing:.005em;text-transform:uppercase;color:var(--ink)}
-.nohs h1 em,.nohs h2 em{font-family:var(--script);font-stretch:normal;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0;font-size:1.2em;line-height:.9}
+.nohs h1 em,.nohs h2 em{color:var(--burgundy);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0}
 .nohs a{color:inherit}
 .nohs svg{flex:none}
 .nohs [hidden]{display:none!important}
@@ -93,7 +93,7 @@ if(META_PIXEL_ID && !window.fbq){
 .nohs .glance p{font-size:14px;margin-top:16px;color:rgba(255,255,255,.65)}
 
 /* ---------- 2. WHY SPONSOR ---------- */
-.nohs .why{background:var(--sand);padding:72px 0}
+.nohs .why{padding:72px 0}
 .nohs .points{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none}
 .nohs .points li{background:#fff;border-radius:6px;padding:28px 26px;box-shadow:inset 0 0 0 1px var(--line)}
 .nohs .points .ic{width:48px;height:48px;border-radius:50%;background:var(--sand);display:grid;place-items:center;margin-bottom:16px}
@@ -102,17 +102,23 @@ if(META_PIXEL_ID && !window.fbq){
 .nohs .points p{font-size:16px}
 
 /* ---------- 3. IMPACT ---------- */
-.nohs .impact{padding:72px 0}
+.nohs .impact{background:var(--sand);padding:72px 0}
 .nohs .impact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
 .nohs .impact h2{font-size:clamp(40px,5vw,60px);margin:12px 0 18px}
 .nohs .impact .lead{margin-bottom:22px}
 .nohs .impact .lead strong{color:var(--ink)}
 .nohs .num{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
 .nohs .num:last-child{border-bottom:1px solid var(--line)}
-.nohs .num b{font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:clamp(42px,5vw,56px);line-height:1;color:var(--burgundy);min-width:4.2ch}
+.nohs .num b{font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:clamp(42px,5vw,56px);line-height:1;color:var(--burgundy);min-width:5.6ch;flex:none}
 .nohs .num span{color:var(--ink);font-size:16px}
-.nohs .photo{border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:var(--sand);box-shadow:0 36px 70px -40px rgba(72,5,0,.55)}
-.nohs .photo img{display:block;width:100%;height:100%;object-fit:cover}
+.nohs .impact .lead + .lead{margin-top:-8px}
+.nohs .film{border-radius:6px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 36px 70px -40px rgba(72,5,0,.55)}
+.nohs .film video{display:block;width:100%;height:100%;object-fit:cover}
+.nohs .story blockquote{font-family:var(--display);font-stretch:87.5%;font-weight:400;font-size:clamp(24px,2.6vw,30px);line-height:1.25;color:var(--ink);margin-top:24px}
+.nohs .story blockquote::before{content:"\201C";display:block;font-size:72px;line-height:.5;color:var(--gold-bright);margin-bottom:4px}
+.nohs .story blockquote em{color:var(--burgundy)}
+.nohs .story cite{display:block;margin-top:12px;font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.nohs .not-ad{font-family:var(--display);font-stretch:87.5%;font-style:italic;font-size:clamp(22px,2.6vw,28px);line-height:1.3;color:var(--burgundy);max-width:30ch;margin:14px auto 0}
 
 /* ---------- 4. TIERS ---------- */
 .nohs .tiers{background:var(--sand);padding:72px 0}
@@ -196,7 +202,6 @@ if(META_PIXEL_ID && !window.fbq){
   .nohs .glance{display:none}
   .nohs .why,.nohs .impact,.nohs .tiers,.nohs .talk-sec{padding:56px 0}
   .nohs .impact .wrap{gap:32px}
-  .nohs .photo{order:-1}
   .nohs .other .wrap{flex-direction:column;align-items:flex-start}
   .nohs .foot .wrap{grid-template-columns:1fr;gap:22px}
   .nohs .sticky{display:flex}
@@ -255,7 +260,30 @@ if(META_PIXEL_ID && !window.fbq){
     </div>
   </section>
 
-  <!-- ========== 2. WHY SPONSOR ========== -->
+  <!-- ========== 2. WHY IT MATTERS ========== -->
+  <!-- Copy and numbers from the 2026 sponsorship packet; video and quote from the main gala page. -->
+  <section class="impact">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Why it matters</div>
+        <h2>No family should face <em>an empty table.</em></h2>
+        <p class="lead">Right now, families across the North Shore are quietly going without, <strong>skipping meals so their kids don&rsquo;t have to</strong>, choosing between groceries and heat. As the holidays get closer, that need only grows.</p>
+        <p class="lead">Since 2014, Good Hope has stood with them through our <strong>Lynnfield food pantry</strong>, <strong>home deliveries for seniors</strong>, and <strong>meals for local shelters</strong>.</p>
+        <div class="num"><b>12,000+</b><span>people served across all Good Hope programs in 2026</span></div>
+        <div class="num"><b>3,000+</b><span>families supported through our food pantry in 2026</span></div>
+        <div class="num"><b>2,449+</b><span>neighbors fed every month at our pantry</span></div>
+      </div>
+      <div class="story">
+        <div class="film">
+          <video controls playsinline preload="none" poster="https://cdn.jsdelivr.net/gh/sjuvvadi-alt/goodhope@7908d13e7502492d26f4bcd6dac5f413b6f00630/night-of-hope/poster.jpg" src="https://cdn.jsdelivr.net/gh/sjuvvadi-alt/goodhope@7908d13e7502492d26f4bcd6dac5f413b6f00630/night-of-hope/testimonial.mp4" aria-label="A mother shares what the Good Hope pantry means to her family"></video>
+        </div>
+        <blockquote>It helps me feed my children. I&rsquo;m a single mother. <em>I have four children.</em></blockquote>
+        <cite>A neighbor at the Good Hope pantry, Lynnfield</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. WHY SPONSOR ========== -->
   <section class="why">
     <div class="wrap">
       <div class="head">
@@ -276,27 +304,9 @@ if(META_PIXEL_ID && !window.fbq){
         <li>
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></svg></div>
           <h3>Stand for something</h3>
-          <p>Be known as a business that shows up for local families, and for clean water projects that change whole villages in Africa.</p>
+          <p>Be known as a business that shows up for families right here at home, when the need is greatest.</p>
         </li>
       </ul>
-    </div>
-  </section>
-
-  <!-- ========== 3. IMPACT ========== -->
-  <!-- Numbers from the 2026 sponsorship packet. ADD a clean-water number (wells funded / people served) when available. -->
-  <section class="impact">
-    <div class="wrap">
-      <div>
-        <div class="eyebrow">What your sponsorship supports</div>
-        <h2>Groceries here. <em>Water there.</em></h2>
-        <p class="lead">Since 2014, Good Hope has run a <strong>no-questions-asked food pantry</strong> in Lynnfield, <strong>delivered groceries to seniors at home</strong>, <strong>brought meals to local shelters</strong>, and <strong>funded clean water wells in Africa.</strong> Your sponsorship keeps it all going through the holidays and beyond.</p>
-        <div class="num"><b>12,000+</b><span>people served across all Good Hope programs in 2026</span></div>
-        <div class="num"><b>3,000+</b><span>families supported through our food pantry in 2026</span></div>
-        <div class="num"><b>2,449+</b><span>neighbors fed every month at our pantry</span></div>
-      </div>
-      <div class="photo">
-        <img src="https://cdn.jsdelivr.net/gh/sjuvvadi-alt/goodhope@7908d13e7502492d26f4bcd6dac5f413b6f00630/night-of-hope/images/volunteers.jpg" alt="Good Hope volunteers packing groceries at the Lynnfield pantry" loading="lazy" decoding="async" width="1400" height="934">
-      </div>
     </div>
   </section>
 
@@ -307,6 +317,7 @@ if(META_PIXEL_ID && !window.fbq){
       <div class="head">
         <div class="eyebrow">Sponsorship levels</div>
         <h2>Choose your level</h2>
+        <p class="not-ad">You&rsquo;re not buying an ad. You&rsquo;re making sure a family&rsquo;s holiday table isn&rsquo;t empty.</p>
         <p>Every level includes gala tickets, your logo on event signage, and your logo on our website. Secure checkout on Givebutter.</p>
       </div>
       <div class="tier-grid">
@@ -396,7 +407,7 @@ if(META_PIXEL_ID && !window.fbq){
           <div><b>Text</b><span class="nohs-phone">978-979-0051</span></div>
         </a></li>
       </ul>
-      <p class="reach-note">Ask for <strong>Sreevani Juvvadi</strong>, Executive Director. We&rsquo;ll get back to you within two business days.</p>
+      <p class="reach-note">Ask for <strong>S. Juvvadi</strong>, Executive Director. We&rsquo;ll get back to you within two business days.</p>
     </div>
   </section>
 
@@ -428,7 +439,7 @@ if(META_PIXEL_ID && !window.fbq){
       </div>
       <div>
         <p><b>Sponsorship questions?</b></p>
-        <p>Sreevani Juvvadi, Executive Director</p>
+        <p>S. Juvvadi, Executive Director</p>
         <p><a href="mailto:office@goodhopeinc.org?subject=Night%20of%20Hope%20Sponsorship">office@goodhopeinc.org</a><br><a href="tel:+19789790051">978-979-0051</a></p>
       </div>
       <p class="legal">Good Hope, Inc. is a 501(c)(3) nonprofit organization. Sponsorships and donations are tax-deductible to the extent allowed by law, less the fair market value of any goods or services received, such as gala tickets. Please consult your tax advisor.</p>
