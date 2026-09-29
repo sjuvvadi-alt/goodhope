@@ -389,7 +389,11 @@ if(META_PIXEL_ID && !window.fbq){
         <p>Tell us a little about your business and we&rsquo;ll reach out within two business days to answer questions and find the right fit.</p>
       </div>
       <div class="form-card">
-        <form id="nohs-form" novalidate>
+        <form id="nohs-form" name="sponsor-interest" method="POST" data-netlify="true" netlify-honeypot="_gotcha" novalidate>
+          <!-- Netlify Forms reads this form when the page is deployed; the hidden fields declare the extra data the script sends -->
+          <input type="hidden" name="form-name" value="sponsor-interest">
+          <input type="hidden" name="subject"><input type="hidden" name="page">
+          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="fbclid">
           <div class="fields">
             <div class="field full">
               <label for="nohs-biz">Business name</label>
@@ -482,14 +486,15 @@ if(META_PIXEL_ID && !window.fbq){
      SPONSOR_URL: Givebutter page where sponsors pay. Every tier button uses it.
        (Optional) per-tier links in TIER_URLS override it, e.g. a Givebutter ticket-type link.
      DEADLINE: last day to be included in signage and the program (end of that day, Eastern).
-     FORM_ENDPOINT: where the interest form posts. A Formspree URL like
-       "https://formspree.io/f/abcdwxyz" works as-is. Empty = the form opens a
-       pre-filled email to NOTIFY_EMAIL instead.
+     FORM_ENDPOINT: where the interest form posts.
+       "netlify" = Netlify Forms (the page is hosted on Netlify; submissions are emailed from there).
+       A Formspree URL like "https://formspree.io/f/abcdwxyz" also works.
+       Empty, or if sending fails = the form opens a pre-filled email to NOTIFY_EMAIL.
      ========================================================= */
   var SPONSOR_URL   = "https://givebutter.com/c/goodhopenightofhope2026";
   var TIER_URLS     = { Platinum: "", Gold: "", Silver: "", Bronze: "" };
   var DEADLINE      = "2026-10-16";
-  var FORM_ENDPOINT = "";
+  var FORM_ENDPOINT = "netlify";
   var NOTIFY_EMAIL  = "office@goodhopeinc.org";
 
   var root = document.querySelector(".nohs");
@@ -550,25 +555,28 @@ if(META_PIXEL_ID && !window.fbq){
       err.textContent = bad.indexOf("email") > -1 && form.email.value.trim() ? "Please check your email address." : "Please add your business name, your name, and email.";
       err.hidden = false; form[bad[0]].focus(); return;
     }
+    var subject = "Night of Hope sponsor interest: " + form.business.value.trim();
+    form.subject.value = subject;
+    form.page.value = location.href.split("?")[0];
+    keep.forEach(function(v, k){ if(form[k]) form[k].value = v; });
     var data = new FormData(form);
-    data.set("_subject", "Night of Hope sponsor interest: " + form.business.value.trim());
-    data.set("page", location.href.split("?")[0]);
-    keep.forEach(function(v, k){ data.set(k, v); });
+    data.set("_subject", subject);
 
-    if(!FORM_ENDPOINT){
+    /* Email fallback: used when no endpoint is set, or when sending fails, so no lead is lost */
+    function byEmail(){
       var body = ["Business: " + form.business.value, "Contact: " + form.name.value, "Email: " + form.email.value,
         "Phone: " + (form.phone.value || "-"), "Level of interest: " + tierSel.value].join("\n");
-      location.href = "mailto:" + NOTIFY_EMAIL + "?subject=" + encodeURIComponent(data.get("_subject")) + "&body=" + encodeURIComponent(body);
-      done(true); return;
+      location.href = "mailto:" + NOTIFY_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      done(true);
     }
+    var netlify = FORM_ENDPOINT === "netlify";
+    if(!FORM_ENDPOINT || (netlify && !/^https?:$/.test(location.protocol))){ byEmail(); return; }
     btn.disabled = true; btn.textContent = "Sending…";
-    fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } })
+    fetch(netlify ? "/" : FORM_ENDPOINT, netlify
+        ? { method: "POST", body: new URLSearchParams(data).toString(), headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+        : { method: "POST", body: data, headers: { Accept: "application/json" } })
       .then(function(r){ if(!r.ok) throw new Error(r.status); done(false); })
-      .catch(function(){
-        btn.disabled = false; btn.textContent = "Start the Conversation";
-        err.innerHTML = 'Something went wrong. Please try again, or email <a href="mailto:' + NOTIFY_EMAIL + '">' + NOTIFY_EMAIL + '</a>.';
-        err.hidden = false;
-      });
+      .catch(byEmail);
   });
 
   /* Sticky mobile bar appears once the hero buttons scroll away, and hides at the form */
