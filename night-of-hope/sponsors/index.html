@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sponsor Night of Hope 2026 | Good Hope Inc.</title>
-<meta name="description" content="Put your business behind local families. Sponsor Good Hope's first Night of Hope Gala, November 7, 2026 at Bear Hill Golf Club, Stoneham. Sponsorships from $1,000 include gala tickets.">
-<meta property="og:title" content="Put your business behind local families">
-<meta property="og:description" content="Sponsor Good Hope's first Night of Hope Gala · Sat, Nov 7 · Bear Hill Golf Club, Stoneham. Sponsorships from $1,000 include gala tickets.">
+<meta name="description" content="North Shore businesses: help local families put food on the table. Sponsor Good Hope's first Night of Hope Gala, November 7, 2026 at Bear Hill Golf Club, Stoneham. Sponsorships from $1,000 include gala tickets.">
+<meta property="og:title" content="North Shore Businesses: Help Local Families Put Food on the Table">
+<meta property="og:description" content="Become a Founding Sponsor of Good Hope's first Night of Hope Gala · Sat, Nov 7 · Bear Hill Golf Club, Stoneham. Sponsorships begin at $1,000.">
 <meta property="og:image" content="https://sjuvvadi-alt.github.io/goodhope/night-of-hope/sponsors/poster.jpg">
 <meta property="og:image:width" content="960">
 <meta property="og:image:height" content="540">
@@ -72,10 +72,18 @@ if(META_PIXEL_ID && !window.fbq){
 /* ---------- 1. HERO ---------- */
 .nohs .hero{padding:56px 0 60px;background:radial-gradient(ellipse 60% 60% at 80% 0%, var(--sand), transparent 70%), var(--cream)}
 .nohs .hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:52px;align-items:center}
-.nohs .hero h1{font-size:clamp(46px,6vw,80px);margin:14px 0 24px}
-.nohs .hero h1 em{display:block;color:var(--burgundy);margin-top:.06em}
+.nohs .hero h1{font-size:clamp(40px,5.2vw,68px);margin:14px 0 22px}
+.nohs .hero h1 .kicker{display:block;font-size:.52em;letter-spacing:.04em;color:var(--burgundy);margin-bottom:.28em}
+.nohs .hero h1 em{display:block;margin-top:.06em}
 .nohs .hero-sub{max-width:40ch;margin:0 0 22px;font-size:clamp(17px,1.9vw,20px)}
 .nohs .hero-sub strong{color:var(--ink)}
+.nohs .from{font-size:18px;font-weight:700;color:var(--burgundy);margin:-8px 0 20px}
+.nohs .hero-dl{display:flex;align-items:flex-start;gap:10px;max-width:46ch;margin:0 0 26px;padding:12px 16px;border-radius:6px;background:#fff;
+  box-shadow:inset 0 0 0 1px var(--line), inset 4px 0 0 var(--burgundy);font-size:15px;line-height:1.45;color:var(--ink);text-align:left}
+.nohs .hero-dl svg{width:18px;height:18px;margin-top:1px;color:var(--burgundy)}
+.nohs .hero-dl b{color:var(--burgundy)}
+.nohs .hero-dl .days{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:999px;background:var(--sand);color:var(--burgundy);
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .nohs .when{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
 .nohs .when span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#fff;
   box-shadow:inset 0 0 0 1px var(--line);font-size:15px;color:var(--ink)}
@@ -98,7 +106,15 @@ if(META_PIXEL_ID && !window.fbq){
 .nohs .glance p{font-size:14px;margin-top:16px;color:rgba(255,255,255,.65)}
 
 /* ---------- 2. WHY SPONSOR ---------- */
-.nohs .why{padding:72px 0}
+.nohs .why{padding:72px 0 64px}
+/* Why sponsor: a lighter three-up list */
+.nohs .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;list-style:none;max-width:1000px;margin:0 auto}
+.nohs .reasons li{padding-top:18px;border-top:3px solid var(--burgundy)}
+.nohs .reasons .ic{width:26px;height:26px;color:var(--burgundy);margin-bottom:10px}
+.nohs .reasons .ic svg{width:26px;height:26px}
+.nohs .reasons h3{font-size:30px;margin-bottom:8px}
+.nohs .reasons p{font-size:16px}
+.nohs .gets{background:var(--sand);padding:72px 0}
 .nohs .points{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none}
 .nohs .points li{background:#fff;border-radius:6px;padding:28px 26px;box-shadow:inset 0 0 0 1px var(--line)}
 .nohs .points .ic{width:48px;height:48px;border-radius:50%;background:var(--sand);display:grid;place-items:center;margin-bottom:16px}
@@ -123,12 +139,13 @@ if(META_PIXEL_ID && !window.fbq){
 .nohs .story blockquote::before{content:"\201C";display:block;font-size:72px;line-height:.5;color:var(--gold-bright);margin-bottom:4px}
 .nohs .story blockquote em{color:var(--burgundy)}
 .nohs .story cite{display:block;margin-top:12px;font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.nohs .impact .not-ad{margin:0 0 22px;font-size:clamp(20px,2.2vw,24px)}
 .nohs .not-ad{font-family:var(--display);font-stretch:87.5%;font-style:italic;font-size:clamp(22px,2.6vw,28px);line-height:1.3;color:var(--burgundy);max-width:30ch;margin:14px auto 0}
 
 /* ---------- 4. TIERS ---------- */
-.nohs .tiers{background:var(--sand);padding:72px 0}
+.nohs .tiers{padding:72px 0}
 .nohs .tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
-.nohs .tier{background:#fff;border-radius:6px;padding:28px 22px;display:flex;flex-direction:column;box-shadow:inset 0 0 0 1px var(--line)}
+.nohs .tier{background:#fff;border-radius:6px;padding:28px 22px;display:flex;flex-direction:column;box-shadow:inset 0 0 0 1px var(--line), 0 24px 50px -36px rgba(72,5,0,.45)}
 .nohs .tier h3{font-size:34px}
 .nohs .tier .price{font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:58px;line-height:1;color:var(--burgundy);margin:10px 0 6px}
 .nohs .tier .tix{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--ink);
@@ -150,31 +167,44 @@ if(META_PIXEL_ID && !window.fbq){
 .nohs .tax{text-align:center;font-size:14px;margin-top:24px}
 
 /* ---------- 5. DEADLINE ---------- */
-.nohs .deadline{background:var(--burgundy-deep);color:#fff;padding:44px 0;text-align:center;position:relative;overflow:hidden}
-.nohs .deadline::before{content:"";position:absolute;inset:0;pointer-events:none;
+.nohs .close{background:var(--burgundy-deep);color:#fff;padding:72px 0;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.12)}
+.nohs .close::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(ellipse 50% 90% at 50% 100%, rgba(255,191,105,.18), transparent 70%)}
-.nohs .deadline .wrap{position:relative}
-.nohs .deadline h2{color:#fff;font-size:clamp(32px,4.4vw,48px);max-width:24ch;margin:0 auto}
-.nohs .deadline h2 b{font-weight:400;color:var(--amber)}
-.nohs .deadline p{margin-top:12px;color:rgba(255,255,255,.78)}
-.nohs .deadline .days{display:inline-block;margin-top:16px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.1);
-  font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.nohs .close .wrap{position:relative;max-width:760px}
+.nohs .close h2{color:#fff;font-size:clamp(40px,6vw,68px)}
+.nohs .close h2 em{color:var(--amber);display:block}
+.nohs .close p{margin:18px auto 0;color:rgba(255,255,255,.82);max-width:52ch}
+.nohs .close .dl{color:#fff;font-weight:600}
+.nohs .close .dl b{color:var(--amber)}
+.nohs .close .btn{margin-top:30px}
 
-/* ---------- 6. LET'S TALK ---------- */
-.nohs .talk-sec{padding:72px 0}
-.nohs .reach{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:880px;margin:0 auto;list-style:none}
-.nohs .reach a{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;text-decoration:none;
-  background:#fff;border-radius:6px;padding:28px 18px;box-shadow:inset 0 0 0 2px var(--line);transition:transform .2s ease, box-shadow .2s ease}
-.nohs .reach a:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 2px var(--burgundy)}
-.nohs .reach .ic{width:56px;height:56px;border-radius:50%;background:var(--burgundy);display:grid;place-items:center}
-.nohs .reach .ic svg{width:26px;height:26px;color:#fff}
-.nohs .reach b{display:block;margin-bottom:6px;font-family:var(--display);font-stretch:62.5%;font-weight:300;font-size:32px;line-height:1;text-transform:uppercase;color:var(--ink)}
-.nohs .reach span{display:block;font-size:15px;color:var(--burgundy);font-weight:600;word-break:break-word}
-.nohs .reach-note{text-align:center;font-size:15px;margin-top:22px}
-.nohs .reach-note strong{color:var(--ink)}
+/* ---------- 6. INTEREST FORM ---------- */
+.nohs .talk-sec{background:var(--sand);padding:72px 0}
+.nohs .form-card{max-width:680px;margin:0 auto;background:#fff;border-radius:6px;padding:clamp(24px,4vw,40px);
+  box-shadow:inset 0 0 0 1px var(--line), 0 30px 60px -40px rgba(72,5,0,.5)}
+.nohs .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.nohs .field{display:flex;flex-direction:column;gap:6px}
+.nohs .field.full{grid-column:1 / -1}
+.nohs label{font-size:14px;font-weight:600;color:var(--ink)}
+.nohs label i{font-style:normal;font-weight:400;color:var(--body)}
+.nohs input,.nohs select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--cream);
+  border:1.5px solid var(--line);border-radius:6px;padding:13px 14px;min-height:50px;-webkit-appearance:none;appearance:none}
+.nohs select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23640510' stroke-width='2.4'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:42px}
+.nohs input:focus,.nohs select:focus{border-color:var(--burgundy)}
+.nohs .form-card .btn{width:100%;margin-top:22px}
+.nohs .form-err{color:var(--burgundy);font-weight:600;font-size:15px;margin-top:14px;text-align:center}
+.nohs .form-note{font-size:14px;margin-top:14px;text-align:center}
+.nohs .form-note a{color:var(--burgundy);font-weight:600}
+.nohs .thanks{text-align:center;padding:8px 0}
+.nohs .thanks .ic{width:60px;height:60px;border-radius:50%;background:var(--burgundy);display:grid;place-items:center;margin:0 auto 18px}
+.nohs .thanks .ic svg{width:28px;height:28px;color:#fff}
+.nohs .thanks h3{font-size:40px;margin-bottom:10px}
+.nohs .thanks p + p{margin-top:12px;font-size:15px}
+.nohs .thanks a{color:var(--burgundy);font-weight:600}
 
 /* ---------- 7. OTHER WAYS ---------- */
-.nohs .other{background:var(--sand);padding:56px 0}
+.nohs .other{padding:56px 0}
 .nohs .other .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px}
 .nohs .other h2{font-size:clamp(34px,4vw,48px);margin:10px 0 12px}
 .nohs .other p{max-width:56ch}
@@ -199,13 +229,15 @@ if(META_PIXEL_ID && !window.fbq){
   .nohs .tier-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:860px){
-  .nohs .hero .wrap,.nohs .impact .wrap,.nohs .points{grid-template-columns:1fr}
+  .nohs .hero .wrap,.nohs .impact .wrap,.nohs .points,.nohs .reasons{grid-template-columns:1fr}
   .nohs .hero{text-align:center}
   .nohs .hero .text{display:flex;flex-direction:column;align-items:center}
   .nohs .hero-sub{margin:0 auto 22px}
+  .nohs .hero-dl{margin:0 auto 26px}
   .nohs .when,.nohs .btns,.nohs .assure{justify-content:center}
   .nohs .glance{display:none}
-  .nohs .why,.nohs .impact,.nohs .tiers,.nohs .talk-sec{padding:56px 0}
+  .nohs .why,.nohs .gets,.nohs .impact,.nohs .tiers,.nohs .talk-sec,.nohs .close{padding:56px 0}
+  .nohs .reasons{gap:22px}
   .nohs .impact .wrap{gap:32px}
   .nohs .other .wrap{flex-direction:column;align-items:flex-start}
   .nohs .foot .wrap{grid-template-columns:1fr;gap:22px}
@@ -219,10 +251,7 @@ if(META_PIXEL_ID && !window.fbq){
   .nohs .btns .btn,.nohs .other .btn{width:100%}
   .nohs .when span{font-size:14px;padding:7px 12px}
   .nohs .tier-grid{grid-template-columns:1fr}
-  .nohs .reach{grid-template-columns:1fr}
-  .nohs .reach a{flex-direction:row;text-align:left;padding:18px 20px;gap:16px}
-  .nohs .reach .ic{width:48px;height:48px}
-  .nohs .reach b{font-size:28px;margin-bottom:2px}
+  .nohs .fields{grid-template-columns:1fr}
   .nohs .tier{padding:26px 22px}
 }
 </style>
@@ -236,18 +265,20 @@ if(META_PIXEL_ID && !window.fbq){
     <div class="wrap">
       <div class="text">
         <div class="eyebrow">Night of Hope Gala &nbsp;·&nbsp; Founding Sponsors</div>
-        <h1>Put your business <em>behind local families.</em></h1>
-        <p class="hero-sub">Sponsor Good Hope&rsquo;s <strong>first-ever Night of Hope Gala</strong> and stand with the Lynnfield pantry that feeds <strong>2,449+ North Shore neighbors every month.</strong></p>
+        <h1><span class="kicker">North Shore Businesses:</span> Help Local Families <em>Put Food on the Table</em></h1>
+        <p class="hero-sub">Become a <strong>Founding Sponsor</strong> of Good Hope&rsquo;s first Night of Hope Gala and help support families across Lynn, Salem, and communities throughout the North Shore.</p>
+        <p class="from">Sponsorships begin at $1,000.</p>
         <div class="when">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Sat, Nov 7, 2026 · 6–8 PM</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Bear Hill Golf Club, Stoneham</span>
         </div>
+        <p class="hero-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><span id="nohs-dl-text">Commit by <b class="nohs-deadline-date">October 16</b> to be included in event signage and the printed program.</span><span class="days" id="nohs-days" hidden></span></span></p>
         <div class="btns" id="nohs-hero-btns">
-          <a class="btn btn-primary" href="#tiers" data-track="hero-sponsor">Become a Sponsor</a>
-          <a class="btn btn-line" href="#talk" data-track="hero-talk">Let&rsquo;s talk first</a>
+          <a class="btn btn-primary" href="#tiers" data-track="hero-sponsor">View Sponsorship Opportunities</a>
+          <a class="btn btn-line" href="#talk" data-track="hero-talk">I&rsquo;m Interested. Contact Me</a>
         </div>
         <div class="assure">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>From $1,000</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Secure checkout on Givebutter</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Gala tickets included</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>501(c)(3) nonprofit</span>
         </div>
@@ -260,7 +291,6 @@ if(META_PIXEL_ID && !window.fbq){
           <li><b>Silver</b><span><strong>$1,500</strong> · 3 tickets</span></li>
           <li><b>Bronze</b><span><strong>$1,000</strong> · 2 tickets</span></li>
         </ul>
-        <p class="nohs-deadline-short">Commit by <span class="nohs-deadline-date">October 16</span> to be on event signage and in the program.</p>
       </aside>
     </div>
   </section>
@@ -274,6 +304,7 @@ if(META_PIXEL_ID && !window.fbq){
         <h2>No family should face <em>an empty table.</em></h2>
         <p class="lead">Right now, families across the North Shore are quietly going without, <strong>skipping meals so their kids don&rsquo;t have to</strong>, choosing between groceries and heat. As the holidays get closer, that need only grows.</p>
         <p class="lead">Since 2014, Good Hope has stood with them through our <strong>Lynnfield food pantry</strong>, <strong>home deliveries for seniors</strong>, and <strong>meals for local shelters</strong>.</p>
+        <p class="not-ad">You&rsquo;re not buying an ad. You&rsquo;re making sure a family&rsquo;s holiday table isn&rsquo;t empty.</p>
         <div class="num"><b>12,000+</b><span>people served across all Good Hope programs in 2026</span></div>
         <div class="num"><b>3,000+</b><span>families supported through our food pantry in 2026</span></div>
         <div class="num"><b>2,449+</b><span>neighbors fed every month at our pantry</span></div>
@@ -293,36 +324,63 @@ if(META_PIXEL_ID && !window.fbq){
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Why sponsor</div>
-        <h2>Good for your neighbors. <em>Good for business.</em></h2>
+        <h2>Why Sponsor <em>Night of Hope?</em></h2>
       </div>
-      <ul class="points">
+      <ul class="reasons">
         <li>
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h3>Be seen locally</h3>
-          <p>Your logo on event signage, on our website, and in front of a room of engaged North Shore families, business owners, and community leaders.</p>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></svg></div>
+          <h3>Support Local Families</h3>
+          <p>Help Good Hope continue providing food and practical support to families throughout the North Shore.</p>
+        </li>
+        <li>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+          <h3>Show Up for Your Community</h3>
+          <p>Give your business a meaningful way to demonstrate its commitment to the community you serve.</p>
         </li>
         <li>
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></div>
-          <h3>Host your people</h3>
-          <p>Every level includes gala tickets. Bring your team, thank a client, or treat your best customers to a meaningful night out.</p>
-        </li>
-        <li>
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></svg></div>
-          <h3>Stand for something</h3>
-          <p>Be known as a business that shows up for families right here at home, when the need is greatest.</p>
+          <h3>Bring Your Team</h3>
+          <p>Sponsorship packages include gala tickets for employees, clients, friends, or guests.</p>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ========== 4. TIERS ========== -->
+  <!-- ========== 4. WHAT YOUR BUSINESS RECEIVES ========== -->
+  <section class="gets">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">For your business</div>
+        <h2>What Your Business <em>Receives</em></h2>
+      </div>
+      <ul class="points">
+        <li>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Local Visibility</h3>
+          <p>Receive recognition connected to Good Hope&rsquo;s work across the North Shore.</p>
+        </li>
+        <li>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></div>
+          <h3>Gala Tickets</h3>
+          <p>Invite employees, clients, friends, or guests to join you at Night of Hope.</p>
+        </li>
+        <li>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Community Connection</h3>
+          <p>Show customers and employees that your business is investing in families close to home.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== 5. TIERS ========== -->
   <!-- Benefits match the Night of Hope 2026 sponsorship packet. -->
   <section class="tiers" id="tiers">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Sponsorship levels</div>
-        <h2>Choose your level</h2>
-        <p class="not-ad">You&rsquo;re not buying an ad. You&rsquo;re making sure a family&rsquo;s holiday table isn&rsquo;t empty.</p>
+        <h2>Become a <em>Founding Sponsor</em></h2>
+        <p>Because this is Good Hope&rsquo;s <strong>first Night of Hope Gala</strong>, this year&rsquo;s sponsors will always be part of where it began.</p>
         <p>Every level includes gala tickets, your logo on event signage, and your logo on our website. Secure checkout on Givebutter.</p>
       </div>
       <div class="tier-grid">
@@ -381,38 +439,56 @@ if(META_PIXEL_ID && !window.fbq){
     </div>
   </section>
 
-  <!-- ========== 5. DEADLINE ========== -->
-  <section class="deadline">
-    <div class="wrap">
-      <h2 id="nohs-deadline-head">Commit by <b class="nohs-deadline-date">Friday, October 16</b> to be included in event signage and the program.</h2>
-      <p id="nohs-deadline-sub">Signage and programs go to print shortly after. Sponsorships made later are still gratefully welcomed.</p>
-      <span class="days" id="nohs-days" hidden></span>
-    </div>
-  </section>
-
-  <!-- ========== 6. LET'S TALK ========== -->
+  <!-- ========== 6. INTEREST FORM ========== -->
+  <!-- GitHub Pages can't receive forms, so sending opens the visitor's email app with their answers filled in. -->
   <section class="talk-sec" id="talk">
     <div class="wrap">
       <div class="head">
-        <div class="eyebrow">Not ready to commit?</div>
-        <h2>Let&rsquo;s start <em>a conversation.</em></h2>
-        <p>Have questions, or not sure which level fits? Reach out whichever way is easiest. No commitment.</p>
+        <div class="eyebrow">Let&rsquo;s talk</div>
+        <h2>Interested, but not ready to <em>choose a level?</em></h2>
+        <p>We&rsquo;d be happy to talk with you. Tell us a little about your business and a member of the Good Hope team will personally follow up.</p>
       </div>
-      <ul class="reach">
-        <li><a id="nohs-email" href="mailto:office@goodhopeinc.org" data-contact="email">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
-          <div><b>Email us</b><span>office@goodhopeinc.org</span></div>
-        </a></li>
-        <li><a id="nohs-call" href="tel:+19789790051" data-contact="call">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
-          <div><b>Call</b><span class="nohs-phone">978-979-0051</span></div>
-        </a></li>
-        <li><a id="nohs-text" href="sms:+19789790051" data-contact="text">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div><b>Text</b><span class="nohs-phone">978-979-0051</span></div>
-        </a></li>
-      </ul>
-      <p class="reach-note">Ask for <strong>S. Juvvadi</strong>, Executive Director. We&rsquo;ll get back to you within two business days.</p>
+      <div class="form-card">
+        <form id="nohs-form" novalidate>
+          <div class="fields">
+            <div class="field">
+              <label for="nohs-name">Name</label>
+              <input id="nohs-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="nohs-biz">Business name</label>
+              <input id="nohs-biz" name="business" type="text" autocomplete="organization" required>
+            </div>
+            <div class="field">
+              <label for="nohs-email">Email</label>
+              <input id="nohs-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            </div>
+            <div class="field">
+              <label for="nohs-phone">Phone</label>
+              <input id="nohs-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+            <div class="field full">
+              <label for="nohs-tier">Which sponsorship level are you considering?</label>
+              <select id="nohs-tier" name="tier">
+                <option value="Bronze · $1,000">Bronze · $1,000</option>
+                <option value="Silver · $1,500">Silver · $1,500</option>
+                <option value="Gold · $2,500">Gold · $2,500</option>
+                <option value="Platinum · $5,000">Platinum · $5,000</option>
+                <option value="I'm not sure yet" selected>I&rsquo;m not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit" id="nohs-submit">Let&rsquo;s Talk About Sponsoring</button>
+          <p class="form-err" id="nohs-err" role="alert" hidden></p>
+          <p class="form-note">Rather talk now? Call or text <a class="nohs-call" href="tel:+19789790051" data-contact="call"><span class="nohs-phone">978-979-0051</span></a> and ask for S. Juvvadi, Executive Director.</p>
+        </form>
+        <div class="thanks" id="nohs-thanks" hidden tabindex="-1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Almost done!</h3>
+          <p>Your email app should open with your details filled in. <strong>Just press Send</strong>, and a member of the Good Hope team will personally follow up.</p>
+          <p>Didn&rsquo;t open? <a id="nohs-retry" href="mailto:office@goodhopeinc.org">Email office@goodhopeinc.org</a> or call <a class="nohs-call" href="tel:+19789790051" data-contact="call"><span class="nohs-phone">978-979-0051</span></a>.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -428,7 +504,17 @@ if(META_PIXEL_ID && !window.fbq){
     </div>
   </section>
 
-  <!-- ========== 8. FOOTER ========== -->
+  <!-- ========== 8. CLOSING ========== -->
+  <section class="close">
+    <div class="wrap">
+      <h2>Help Build Hope <em>Close to Home</em></h2>
+      <p>Your sponsorship helps Good Hope continue serving families across the North Shore while giving your business meaningful local visibility.</p>
+      <p class="dl" id="nohs-close-dl">For inclusion in event signage and the printed program, please confirm your sponsorship by <b class="nohs-deadline-date">October 16</b>.</p>
+      <a class="btn btn-amber" href="#tiers" data-track="close-sponsor">Become a Sponsor</a>
+    </div>
+  </section>
+
+  <!-- ========== 9. FOOTER ========== -->
   <footer class="foot">
     <div class="wrap">
       <div>
@@ -453,8 +539,8 @@ if(META_PIXEL_ID && !window.fbq){
 
   <!-- Sticky mobile action bar -->
   <div class="sticky" id="nohs-sticky">
-    <a class="btn btn-amber" href="#tiers" data-track="sticky-sponsor">Become a Sponsor</a>
-    <a class="btn btn-ghost" href="#talk" data-track="sticky-talk">Let&rsquo;s talk</a>
+    <a class="btn btn-amber" href="#tiers" data-track="sticky-sponsor">See Sponsorships</a>
+    <a class="btn btn-ghost" href="#talk" data-track="sticky-talk">Contact Me</a>
   </div>
 </div>
 
@@ -465,7 +551,8 @@ if(META_PIXEL_ID && !window.fbq){
      SPONSOR_URL: Givebutter page where sponsors pay. Every tier button uses it.
        (Optional) per-tier links in TIER_URLS override it, e.g. a Givebutter ticket-type link.
      DEADLINE: last day to be included in signage and the program (end of that day, Eastern).
-     CONTACT_EMAIL / CONTACT_PHONE: used by the Email, Call and Text buttons.
+     CONTACT_EMAIL: where the interest form sends (it opens the visitor's email app).
+     CONTACT_PHONE: the call / text number shown under the form.
      ========================================================= */
   var SPONSOR_URL   = "https://givebutter.com/c/goodhopenightofhope2026";
   var TIER_URLS     = { Platinum: "", Gold: "", Silver: "", Bronze: "" };
@@ -494,43 +581,58 @@ if(META_PIXEL_ID && !window.fbq){
     a.addEventListener("click", function(){ track("SponsorCTA", { cta: a.dataset.track }, true); });
   });
 
-  /* Email, Call and Text buttons. The email and text open with a starter message;
-     "Questions first?" on a tier card fills in that level. Each tap is reported as a Contact. */
-  var digits = CONTACT_PHONE.replace(/\D/g, ""), tel = "+1" + digits.slice(-10);
+  /* Call links use CONTACT_PHONE; each tap is reported as a Contact */
+  var tel = "+1" + CONTACT_PHONE.replace(/\D/g, "").slice(-10);
   root.querySelectorAll(".nohs-phone").forEach(function(el){ el.textContent = CONTACT_PHONE; });
-  $("nohs-call").href = "tel:" + tel;
-  $("nohs-email").querySelector("span").textContent = CONTACT_EMAIL;
-  function setMessage(tier){
-    var level = tier ? "the " + tier + " level" : "sponsoring";
-    var subject = "Night of Hope sponsorship" + (tier ? ": " + tier : "");
-    var body = "Hi Good Hope,\n\nI'm interested in " + level + " for the Night of Hope Gala and have a few questions.\n\nBusiness:\nName:\nBest phone:\n";
-    $("nohs-email").href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    $("nohs-text").href = "sms:" + tel + "?&body=" + encodeURIComponent("Hi, I'm interested in " + level + " for the Night of Hope Gala. My name and business: ");
-  }
-  setMessage("");
-  root.querySelectorAll("[data-talk]").forEach(function(a){
-    a.addEventListener("click", function(){ setMessage(a.dataset.talk); });
-  });
+  root.querySelectorAll(".nohs-call").forEach(function(a){ a.href = "tel:" + tel; });
   root.querySelectorAll("[data-contact]").forEach(function(a){
     a.addEventListener("click", function(){ track("Contact", { content_name: "Night of Hope Sponsorship", method: a.dataset.contact }); });
   });
 
+  /* "Questions first?" on a tier card picks that level in the form */
+  var tierSel = $("nohs-tier");
+  root.querySelectorAll("[data-talk]").forEach(function(a){
+    a.addEventListener("click", function(){
+      var o = [].find.call(tierSel.options, function(o){ return o.value.indexOf(a.dataset.talk) === 0; });
+      if(o) tierSel.value = o.value;
+    });
+  });
+
+  /* Interest form: opens the visitor's email app with their answers, and reports a Lead */
+  var form = $("nohs-form"), err = $("nohs-err");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.hidden = true;
+    var bad = ["name", "business", "email"].filter(function(n){ return !form[n].value.trim() || (n === "email" && !form[n].checkValidity()); });
+    if(bad.length){
+      err.textContent = bad.indexOf("email") > -1 && form.email.value.trim() ? "Please check your email address." : "Please add your name, business name, and email.";
+      err.hidden = false; form[bad[0]].focus(); return;
+    }
+    var subject = "Night of Hope sponsorship: " + form.business.value.trim();
+    var body = ["Hi Good Hope,", "", "We're interested in sponsoring the Night of Hope Gala. Please follow up with us.", "",
+      "Name: " + form.name.value.trim(), "Business: " + form.business.value.trim(), "Email: " + form.email.value.trim(),
+      "Phone: " + (form.phone.value.trim() || "-"), "Level we're considering: " + tierSel.value].join("\n");
+    var mailto = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    $("nohs-retry").href = mailto;
+    track("Lead", { content_name: "Night of Hope Sponsorship Interest", content_category: tierSel.value });
+    location.href = mailto;
+    form.hidden = true; $("nohs-thanks").hidden = false; $("nohs-thanks").focus();
+  });
+
   /* Deadline: fill in the date, count the days, and soften the message once it passes */
   var dl = new Date(DEADLINE + "T23:59:59-04:00");
-  var long = dl.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: "America/New_York" });
   var short = dl.toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: "America/New_York" });
-  root.querySelectorAll(".nohs-deadline-date").forEach(function(el){ el.textContent = el.closest(".glance") ? short : long; });
+  root.querySelectorAll(".nohs-deadline-date").forEach(function(el){ el.textContent = short; });
   var left = Math.ceil((dl - new Date()) / 864e5);
   if(left > 0){
     $("nohs-days").hidden = false;
     $("nohs-days").textContent = left === 1 ? "Last day" : left + " days left";
   } else {
-    $("nohs-deadline-head").textContent = "Signage and programs are at the printer. There’s still room to sponsor.";
-    $("nohs-deadline-sub").textContent = "Sponsors who join now are recognized from the stage and on social media, and every dollar still feeds local families.";
-    root.querySelectorAll(".nohs-deadline-short").forEach(function(el){ el.remove(); });
+    $("nohs-dl-text").textContent = "Signage and programs are at the printer, but there’s still time to sponsor.";
+    $("nohs-close-dl").textContent = "Sponsors who join now are recognized from the stage and on social media.";
   }
 
-  /* Sticky mobile bar appears once the hero buttons scroll away, and hides at the contact buttons */
+  /* Sticky mobile bar appears once the hero buttons scroll away, and hides at the form */
   var sticky = $("nohs-sticky"), heroBtns = $("nohs-hero-btns"), talk = $("talk");
   window.addEventListener("scroll", function(){
     var t = talk.getBoundingClientRect();
